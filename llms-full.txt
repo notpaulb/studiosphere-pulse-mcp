@@ -1,0 +1,43 @@
+# StudioSphere Pulse
+
+StudioSphere Pulse is a hosted audio intelligence API and remote MCP server for music producers, catalog teams, and AI agents.
+
+Pulse v1.0 analyzes public audio URLs and returns structured results for BPM, musical key, and waveform peaks. Track structure segmentation and chord transcription are coming soon and should not be requested from v1.0 tools.
+
+## Endpoints
+
+- `GET https://pulse.studiosphere.space/health` — service health
+- `GET https://pulse.studiosphere.space/tools` — public tool and pricing metadata
+- `POST https://mcp.studiosphere.space/mcp` — remote MCP server
+
+## Current Tool Metadata
+
+- `waveform`: available, 0.3 tokens per second
+- `bpm`: available, 0.5 tokens per second
+- `key`: available, 0.5 tokens per second
+- `structure`: coming soon, 0.7 tokens per second
+- `chords`: coming soon, 1.3 tokens per second
+
+The token price is currently listed by the public tools endpoint as `$0.005` per token and cache-hit price as `$0.001` per token.
+
+## Agent Workflow
+
+1. Ask the user for a public audio URL.
+2. Ask which available tools to run: `waveform`, `bpm`, and/or `key`.
+3. Call `estimate_cost`.
+4. Show the cost to the user.
+5. Confirm the user has the right to submit the audio.
+6. If the user has an API key, call `analyze_track`.
+7. If the user does not have an API key, call `request_payment_link`.
+8. Poll `get_job_status` until terminal.
+
+## Restrictions
+
+- Do not request `structure` or `chords` until the service marks them available.
+- Do not submit audio unless the user confirms they have rights to submit it.
+- Do not expose Pulse API keys in public logs, prompts, examples, screenshots, or issues.
+
+## Contact
+
+pulse@studiosphere.space
+

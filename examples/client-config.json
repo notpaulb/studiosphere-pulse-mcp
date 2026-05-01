@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "studiosphere-pulse": {
+      "url": "https://mcp.studiosphere.space/mcp",
+      "headers": {
+        "Authorization": "Bearer YOUR_PULSE_API_KEY"
+      }
+    }
+  }
+}
+

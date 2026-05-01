@@ -1,0 +1,37 @@
+# StudioSphere Pulse
+
+StudioSphere Pulse is a hosted audio intelligence API and remote MCP server for music producers and AI agents.
+
+## Primary URLs
+
+- Product API: https://pulse.studiosphere.space
+- MCP server: https://mcp.studiosphere.space/mcp
+- Health: https://pulse.studiosphere.space/health
+- Tools metadata: https://pulse.studiosphere.space/tools
+- Public repository: https://github.com/notpaulb/studiosphere-pulse-mcp
+- Official MCP Registry name: `space.studiosphere/pulse`
+
+## Available v1.0 Capabilities
+
+- BPM detection
+- Musical key detection
+- Waveform peak extraction
+- Free estimates before paid analysis
+- One-time checkout for users without an API account
+- API-key analysis for accounts with banked tokens
+- Status polling for completed, partial, or failed results
+
+## Coming Soon
+
+- Track structure segmentation
+- Chord transcription
+
+## Agent Guidance
+
+Always call `estimate_cost` before analysis. Always confirm the user has the right to submit the audio before calling `analyze_track`. `structure` and `chords` are not available in v1.0 and should not be requested.
+
+## Useful Documentation
+
+- Tool guide: https://github.com/notpaulb/studiosphere-pulse-mcp/blob/main/docs/tools.md
+- MCP server metadata: https://github.com/notpaulb/studiosphere-pulse-mcp/blob/main/mcp/server.json
+
