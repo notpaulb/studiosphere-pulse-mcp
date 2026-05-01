@@ -1,103 +1,150 @@
-# StudioSphere Pulse MCP
 
-StudioSphere Pulse is a hosted audio intelligence API and remote MCP server for music producers, catalog teams, and AI agents that need structured audio metadata before acting.
+> **Privacy-first audio intelligence over the Model Context Protocol.**
+> BPM, musical key, and waveform peaks for any public audio URL. Audio is
+> processed in memory and never stored. Pay-per-second, no subscription.
 
-Pulse v1.0 describes the current capability set. The latest MCP Registry metadata package is `1.0.1`; the hosted API currently reports service version `0.1.0` from its health and root descriptors.
+[![MCP Registry](https://img.shields.io/badge/MCP%20Registry-space.studiosphere%2Fpulse-22d3ee)](https://registry.modelcontextprotocol.io/v0/servers?search=space.studiosphere%2Fpulse)
+[![Hosted](https://img.shields.io/badge/hosted-pulse.studiosphere.space-60a5fa)](https://pulse.studiosphere.space)
 
-Pulse v1.0 analyzes public audio URLs and returns:
+**Keywords:** audio MCP · BPM detection · musical key detection · waveform analysis · music information retrieval · audio intelligence API · remote MCP server · Streamable HTTP transport.
 
-- BPM detection
-- Musical key detection
-- Waveform peak data for visualization
+---
 
-Track structure segmentation and chord transcription are marked as coming soon and are not available in v1.0.
+## What it does
+
+Pulse analyses any public audio URL (or a direct upload, with an account) and returns structured metadata your AI assistant can act on:
+
+- **BPM** — tempo with confidence and beat count, time-signature inference
+- **Musical key** — root + scale (e.g. `B minor`) with confidence
+- **Waveform** — peak-amplitude array suitable for visualization
+
+Track structure segmentation and chord transcription are marked **coming soon** and are intentionally rejected by v1.0 routes.
+
+## Why creators and agents trust Pulse
+
+| | |
+|---|---|
+| ✅ **Audio never stored.** | Files are downloaded into a temporary directory, analyzed, and deleted in the same job. Pulse never keeps a copy. |
+| ✅ **Payment details never touch Pulse.** | Payment entry happens on Stripe's hosted page. Pulse only sees opaque Stripe IDs and dollar amounts — no card number, no CVV, no billing address, no bank or device token. PCI-DSS scope: out. |
+| ✅ **No tracking, no analytics.** | No Google Analytics, no Mixpanel, no third-party tags. Outbound calls only to Stripe (payments) and Google Fonts (typography). |
+| ✅ **Money back when we under-deliver.** | Failed jobs are free. Estimate-vs-actual overages refund automatically through Stripe. |
+
+Full transparency at <https://pulse.studiosphere.space/terms>.
 
 ## Service URLs
 
-- Product API: https://pulse.studiosphere.space
-- Remote MCP server: https://mcp.studiosphere.space/mcp
-- Tool metadata: https://pulse.studiosphere.space/tools
-- Health check: https://pulse.studiosphere.space/health
-- Official MCP Registry package: `space.studiosphere/pulse`
-- Contact: pulse@studiosphere.space
+| | |
+|---|---|
+| Marketing site | https://pulse.studiosphere.space |
+| Product REST API | https://pulse.studiosphere.space |
+| Remote MCP server | `https://mcp.studiosphere.space/mcp` |
+| MCP setup wizard | https://pulse.studiosphere.space/connect |
+| Account signup | https://pulse.studiosphere.space/signup |
+| Tool metadata | https://pulse.studiosphere.space/tools |
+| Server descriptor | https://pulse.studiosphere.space/.well-known/mcp/server.json |
+| Health check | https://pulse.studiosphere.space/health |
+| MCP Registry | `space.studiosphere/pulse` |
+| Support | pulse@studiosphere.space |
 
-## Why Agents Use Pulse
+## MCP client setup
 
-Pulse gives agents a narrow, reliable way to inspect audio before making creative or operational decisions. It is useful for:
+The Pulse MCP server uses **Streamable HTTP** transport. Authentication is by Pulse API key passed as the `api_key` query parameter on the connection URL.
 
-- Sample-pack tagging and search
-- Agent-assisted DAW and session preparation
-- Remix and mashup compatibility checks
-- Licensed music-library enrichment
-- Sync and catalog metadata workflows
-- Content-creator music selection from approved libraries
+### Claude Desktop
 
-Agents should only submit audio when the user confirms they have the right to analyze that audio.
-
-## Available Tools
-
-| Tool | Status | Output |
-| --- | --- | --- |
-| `waveform` | Available | Peak data suitable for waveform rendering |
-| `bpm` | Available | Tempo estimate and related confidence data |
-| `key` | Available | Musical key estimate and confidence data |
-| `structure` | Coming soon | Planned section segmentation |
-| `chords` | Coming soon | Planned timestamped chord progression |
-
-Current public pricing metadata is available from:
-
-```bash
-curl https://pulse.studiosphere.space/tools
-```
-
-## MCP Workflow
-
-1. Call `estimate_cost` with a public audio URL and selected tools.
-2. Show the user the returned cost display.
-3. Confirm the user has the right to submit the audio.
-4. Use `analyze_track` with a Pulse API key, or `request_payment_link` for one-time checkout.
-5. Poll `get_job_status` until the job is `completed`, `partial`, or `failed`.
-
-## Client Configuration
-
-Use Streamable HTTP:
+Open `Settings → Developer → Edit Config`, then merge:
 
 ```json
 {
   "mcpServers": {
     "studiosphere-pulse": {
-      "url": "https://mcp.studiosphere.space/mcp",
-      "headers": {
-        "Authorization": "Bearer YOUR_PULSE_API_KEY"
-      }
+      "type": "http",
+      "url": "https://mcp.studiosphere.space/mcp?api_key=YOUR_PULSE_API_KEY"
     }
   }
 }
 ```
 
-Some MCP clients also support passing the API key as a query parameter during initialization:
+Restart Claude Desktop.
 
-```text
-https://mcp.studiosphere.space/mcp?api_key=YOUR_PULSE_API_KEY
+### Claude Code (CLI)
+
+```bash
+claude mcp add --transport http studiosphere-pulse \
+  https://mcp.studiosphere.space/mcp?api_key=YOUR_PULSE_API_KEY
 ```
 
-The MCP endpoint is `https://mcp.studiosphere.space/mcp`. A plain browser or unauthenticated GET request may return `session_required`; that is expected for Streamable HTTP clients before session initialization.
+Verify with `claude mcp list`.
 
-`estimate_cost`, `request_payment_link`, and `get_job_status` can be used without an API key. `analyze_track` and `get_token_balance` require a Pulse API key.
+### Cursor
 
-## Example Agent Prompt
+Add to `~/.cursor/mcp.json`:
 
-```text
-Estimate the cost to analyze this licensed audio URL for BPM, key, and waveform.
-Show me the price before starting. I confirm I have the right to submit this audio.
+```json
+{
+  "mcpServers": {
+    "studiosphere-pulse": {
+      "type": "http",
+      "url": "https://mcp.studiosphere.space/mcp?api_key=YOUR_PULSE_API_KEY"
+    }
+  }
+}
 ```
 
-## Repository Scope
+### ChatGPT
 
-This repository intentionally contains only public-facing documentation, registry metadata, and client examples for the hosted StudioSphere Pulse MCP service. It does not contain production service source code, deployment configuration, credentials, private infrastructure notes, migrations, or internal operational documentation.
+The Pulse server speaks Streamable HTTP at `https://mcp.studiosphere.space/mcp`. Add it via whichever connector / GPT-action surface your account exposes; supply the API key as the `api_key` query parameter.
+
+### Get an API key
+
+Register at <https://pulse.studiosphere.space/signup>. Keys begin with `sk_pulse_` and are shown once — store them in a password manager.
+
+The hosted **`/connect`** page (<https://pulse.studiosphere.space/connect>) generates the per-client config snippet with your key stamped in for one-click copy.
+
+## Tools available to the assistant
+
+| Tool | Auth | Description |
+|---|---|---|
+| `estimate_cost` | none | Quote a price for a public audio URL. |
+| `analyze_track` | API key | Run analysis. Tools: `bpm`, `key`, `waveform`. |
+| `request_payment_link` | none | Stripe Checkout link for one-off use without an account. |
+| `get_job_status` | none | Poll a running job and fetch the result. |
+| `get_token_balance` | API key | Banked-token balance. |
+| `list_token_packs` | none | Available token packs (10K/$50, 50K/$250, 200K/$1000). |
+| `purchase_token_pack` | API key | Stripe Checkout link to buy a pack. |
+
+## Workflow agents should follow
+
+1. Call `estimate_cost` with the audio URL and selected tools.
+2. Show the user the returned `cost_display` and `duration_estimate_sec`.
+3. Confirm the user has the right to submit the audio.
+4. Call `analyze_track` (banked tokens) **or** `request_payment_link` (anonymous one-time payment).
+5. Poll `get_job_status` until terminal (`completed`, `partial`, `failed`).
+6. Surface the result.
+
+Pricing is per-second of audio analyzed × per-tool multiplier. Banked-token pricing skips the $0.50 Stripe minimum and the per-job Checkout redirect.
+
+## Why agents use Pulse
+
+- Sample-pack tagging and search
+- DAW / session preparation
+- Remix and mashup compatibility checks
+- Licensed music-library enrichment
+- Sync and catalog metadata workflows
+- Content-creator music selection from approved libraries
+
+Agents must only submit audio when the user confirms rights to analyze it. The `analyze_track` tool requires an explicit `attestation_confirmed: true` for this reason.
+
+## Repository scope
+
+This repository contains **only public-facing documentation, registry metadata, and client examples**. It does not contain production service source code, deployment configuration, credentials, private infrastructure notes, migrations, or internal operational documentation.
 
 ## Security
 
 Do not send private, copyrighted, or third-party audio unless you have the right to submit it for analysis. Do not publish Pulse API keys in client configs, prompts, logs, or issue reports.
 
-For security questions, contact pulse@studiosphere.space.
+Security questions: pulse@studiosphere.space.
+
+## License
+
+See `LICENSE` in this repository. Pulse is operated by StudioSphere Inc., Quebec, Canada.
