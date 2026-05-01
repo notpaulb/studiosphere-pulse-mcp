@@ -2,12 +2,12 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "space.studiosphere/pulse",
   "title": "StudioSphere Pulse — Audio Intelligence API",
-  "description": "Hosted audio intelligence for agents and music workflows. BPM, key, and waveform analysis are available in v1.0. Structure and chord analysis are coming soon.",
+  "description": "Audio intelligence for music producers — BPM, key, waveform. Pay per second. No subscription.",
   "repository": {
     "url": "https://github.com/notpaulb/studiosphere-pulse-mcp",
     "source": "github"
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://pulse.studiosphere.space",
   "remotes": [
     {
@@ -16,4 +16,3 @@
     }
   ]
 }
-

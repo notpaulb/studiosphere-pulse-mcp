@@ -2,6 +2,8 @@
 
 StudioSphere Pulse is a hosted audio intelligence API and remote MCP server for music producers, catalog teams, and AI agents that need structured audio metadata before acting.
 
+Pulse v1.0 describes the current capability set. The latest MCP Registry metadata package is `1.0.1`; the hosted API currently reports service version `0.1.0` from its health and root descriptors.
+
 Pulse v1.0 analyzes public audio URLs and returns:
 
 - BPM detection
@@ -79,6 +81,8 @@ Some MCP clients also support passing the API key as a query parameter during in
 https://mcp.studiosphere.space/mcp?api_key=YOUR_PULSE_API_KEY
 ```
 
+The MCP endpoint is `https://mcp.studiosphere.space/mcp`. A plain browser or unauthenticated GET request may return `session_required`; that is expected for Streamable HTTP clients before session initialization.
+
 `estimate_cost`, `request_payment_link`, and `get_job_status` can be used without an API key. `analyze_track` and `get_token_balance` require a Pulse API key.
 
 ## Example Agent Prompt
@@ -97,4 +101,3 @@ This repository intentionally contains only public-facing documentation, registr
 Do not send private, copyrighted, or third-party audio unless you have the right to submit it for analysis. Do not publish Pulse API keys in client configs, prompts, logs, or issue reports.
 
 For security questions, contact pulse@studiosphere.space.
-
