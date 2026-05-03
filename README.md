@@ -5,6 +5,8 @@
 
 [![MCP Registry](https://img.shields.io/badge/MCP%20Registry-space.studiosphere%2Fpulse-22d3ee)](https://registry.modelcontextprotocol.io/v0/servers?search=space.studiosphere%2Fpulse)
 [![Hosted](https://img.shields.io/badge/hosted-pulse.studiosphere.space-60a5fa)](https://pulse.studiosphere.space)
+[![Smithery](https://img.shields.io/badge/Smithery-studiosphere%2Fpulse-a78bfa)](https://smithery.ai/servers/studiosphere/pulse)
+[![Glama](https://img.shields.io/badge/Glama-connector-22d3ee)](https://glama.ai/mcp/connectors/space.studiosphere/pulse)
 
 **Keywords:** audio MCP · BPM detection · musical key detection · waveform analysis · music information retrieval · audio intelligence API · remote MCP server · Streamable HTTP transport.
 
@@ -31,6 +33,9 @@ Track structure segmentation and chord transcription are marked **coming soon** 
 
 Full transparency at <https://pulse.studiosphere.space/terms>.
 
+For a short setup walkthrough, see
+[`docs/pulse-mcp-quickstart.md`](docs/pulse-mcp-quickstart.md).
+
 ## Service URLs
 
 | | |
@@ -44,6 +49,8 @@ Full transparency at <https://pulse.studiosphere.space/terms>.
 | Server descriptor | https://pulse.studiosphere.space/.well-known/mcp/server.json |
 | Health check | https://pulse.studiosphere.space/health |
 | MCP Registry | `space.studiosphere/pulse` |
+| Smithery | https://smithery.ai/servers/studiosphere/pulse |
+| Glama | https://glama.ai/mcp/connectors/space.studiosphere/pulse |
 | Support | pulse@studiosphere.space |
 
 ## MCP client setup

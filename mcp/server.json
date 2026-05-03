@@ -1,14 +1,23 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "space.studiosphere/pulse",
-  "title": "StudioSphere Pulse — Audio Intelligence API",
-  "description": "Audio intelligence for music producers — BPM, key, waveform. Pay per second. No subscription.",
+  "title": "StudioSphere Pulse — Audio Intelligence",
+  "description": "Privacy-first audio intelligence: BPM, key, waveform. Audio never stored. Pay per second.",
+  "version": "1.0.2",
+  "websiteUrl": "https://pulse.studiosphere.space",
+  "homepage": "https://pulse.studiosphere.space",
   "repository": {
     "url": "https://github.com/notpaulb/studiosphere-pulse-mcp",
     "source": "github"
   },
-  "version": "1.0.1",
-  "homepage": "https://pulse.studiosphere.space",
+  "icons": [
+    {
+      "src": "https://pulse.studiosphere.space/assets/icon.svg",
+      "mimeType": "image/svg+xml",
+      "sizes": ["any"],
+      "theme": "dark"
+    }
+  ],
   "remotes": [
     {
       "type": "streamable-http",
