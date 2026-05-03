@@ -16,7 +16,7 @@
 
 Pulse analyses any public audio URL (or a direct upload, with an account) and returns structured metadata your AI assistant can act on:
 
-- **BPM** — tempo with confidence and beat count, time-signature inference
+- **BPM** — tempo with confidence and beat count
 - **Musical key** — root + scale (e.g. `B minor`) with confidence
 - **Waveform** — peak-amplitude array suitable for visualization
 
@@ -35,6 +35,8 @@ Full transparency at <https://pulse.studiosphere.space/terms>.
 
 For a short setup walkthrough, see
 [`docs/pulse-mcp-quickstart.md`](docs/pulse-mcp-quickstart.md).
+For agent and builder scenarios, see
+[`docs/agent-playbook.md`](docs/agent-playbook.md).
 
 ## Service URLs
 
@@ -44,6 +46,7 @@ For a short setup walkthrough, see
 | Product REST API | https://pulse.studiosphere.space |
 | Remote MCP server | `https://mcp.studiosphere.space/mcp` |
 | MCP setup wizard | https://pulse.studiosphere.space/connect |
+| Agent playbook | https://pulse.studiosphere.space/for-agents |
 | Account signup | https://pulse.studiosphere.space/signup |
 | Tool metadata | https://pulse.studiosphere.space/tools |
 | Server descriptor | https://pulse.studiosphere.space/.well-known/mcp/server.json |
@@ -133,12 +136,13 @@ Pricing is per-second of audio analyzed × per-tool multiplier. Banked-token pri
 
 ## Why agents use Pulse
 
+- DJ beat matching and harmonic set planning
 - Sample-pack tagging and search
-- DAW / session preparation
-- Remix and mashup compatibility checks
+- DAW and session preparation
+- App metadata for BPM, key, and waveform features
 - Licensed music-library enrichment
 - Sync and catalog metadata workflows
-- Content-creator music selection from approved libraries
+- Reference-track planning for producers and songwriters
 
 Agents must only submit audio when the user confirms rights to analyze it. The `analyze_track` tool requires an explicit `attestation_confirmed: true` for this reason.
 

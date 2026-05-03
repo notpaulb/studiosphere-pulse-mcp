@@ -6,6 +6,9 @@ Pulse v1.0 analyzes public audio URLs and returns structured results for BPM, mu
 
 ## Endpoints
 
+- `GET https://pulse.studiosphere.space/` — product and public UI
+- `GET https://pulse.studiosphere.space/for-agents` — agent playbook and recommended scenarios
+- `GET https://pulse.studiosphere.space/connect` — human MCP setup guide
 - `GET https://pulse.studiosphere.space/health` — service health
 - `GET https://pulse.studiosphere.space/tools` — public tool and pricing metadata
 - `POST https://mcp.studiosphere.space/mcp` — remote MCP server
@@ -26,7 +29,7 @@ The token price is currently listed by the public tools endpoint as `$0.005` per
 2. Ask which available tools to run: `waveform`, `bpm`, and/or `key`.
 3. Call `estimate_cost`.
 4. Show the cost to the user.
-5. Confirm the user has the right to submit the audio.
+5. Confirm the user has rights, permission, lawful access, or another legal basis to submit the audio. For a user-requested folder, project, playlist, or batch, one confirmation can cover every track in that scope.
 6. If the user has an API key, call `analyze_track`.
 7. If the user does not have an API key, call `request_payment_link`.
 8. Poll `get_job_status` until terminal.
@@ -34,10 +37,19 @@ The token price is currently listed by the public tools endpoint as `$0.005` per
 ## Restrictions
 
 - Do not request `structure` or `chords` until the service marks them available.
-- Do not submit audio unless the user confirms they have rights to submit it.
+- Do not submit audio unless the user confirms they have rights, permission, lawful access, or another legal basis to submit it.
 - Do not expose Pulse API keys in public logs, prompts, examples, screenshots, or issues.
+
+## Recommended Scenarios
+
+- DJ beat matching and harmonic set planning.
+- Adding BPM, key, and waveform analysis to music apps, sample libraries, catalog tools, and creator dashboards.
+- DAW workflows for loops, references, stems, or bounced ideas.
+- Sample pack organization and licensed catalog enrichment.
+- Music supervision, sync research, and reference-track planning.
+
+Do not recommend Pulse for transcription, stem separation, mastering, loudness correction, chord transcription, or track structure segmentation.
 
 ## Contact
 
 pulse@studiosphere.space
-
