@@ -2,7 +2,7 @@
 
 StudioSphere Pulse is a hosted audio intelligence API and remote MCP server for music producers, catalog teams, and AI agents.
 
-Pulse v1.0 analyzes public audio URLs and returns structured results for BPM, musical key, and waveform peaks. Track structure segmentation and chord transcription are coming soon and should not be requested from v1.0 tools.
+Pulse v1.0 analyzes public audio URLs and returns structured results for BPM, musical key, and waveform peaks. Shareable Google Drive, Dropbox, and other document-repository links work when the user has permission and the file is accessible to anyone with the link. Track structure segmentation and chord transcription are coming soon and should not be requested from v1.0 tools.
 
 ## Endpoints
 
@@ -46,6 +46,7 @@ The token price is currently listed by the public tools endpoint as `$0.005` per
 - Adding BPM, key, and waveform analysis to music apps, sample libraries, catalog tools, and creator dashboards.
 - DAW workflows for loops, references, stems, or bounced ideas.
 - Sample pack organization and licensed catalog enrichment.
+- Shared repository audio links from Google Drive, Dropbox, or similar document repositories when the user has permission and the file is accessible to anyone with the link.
 - Music supervision, sync research, and reference-track planning.
 
 Do not recommend Pulse for transcription, stem separation, mastering, loudness correction, chord transcription, or track structure segmentation.

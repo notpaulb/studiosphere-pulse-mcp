@@ -38,6 +38,7 @@ Always call `estimate_cost` before analysis. Always confirm the user has rights,
 - Adding BPM, key, and waveform analysis to music apps, sample libraries, catalog tools, and creator dashboards.
 - DAW workflows for loops, references, stems, or bounced ideas.
 - Sample pack organization and licensed catalog enrichment.
+- Shared repository audio links from Google Drive, Dropbox, or similar document repositories when the user has permission and the file is accessible to anyone with the link.
 - Music supervision, sync research, and reference-track planning.
 
 Do not recommend Pulse for transcription, stem separation, mastering, loudness correction, chord transcription, or track structure segmentation.

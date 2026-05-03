@@ -14,7 +14,7 @@
 
 ## What it does
 
-Pulse analyses any public audio URL (or a direct upload, with an account) and returns structured metadata your AI assistant can act on:
+Pulse analyses any public audio URL (or a direct upload, with an account) and returns structured metadata your AI assistant can act on. Shareable Google Drive, Dropbox, and other document-repository links work when the user has permission and the file is accessible to anyone with the link:
 
 - **BPM** — tempo with confidence and beat count
 - **Musical key** — root + scale (e.g. `B minor`) with confidence
@@ -138,6 +138,7 @@ Pricing is per-second of audio analyzed × per-tool multiplier. Banked-token pri
 
 - DJ beat matching and harmonic set planning
 - Sample-pack tagging and search
+- Shared-drive and document-repository audio links
 - DAW and session preparation
 - App metadata for BPM, key, and waveform features
 - Licensed music-library enrichment
