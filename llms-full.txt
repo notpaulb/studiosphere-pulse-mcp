@@ -9,6 +9,14 @@ Pulse v1.0 analyzes public audio URLs and returns structured results for BPM, mu
 - `GET https://pulse.studiosphere.space/` — product and public UI
 - `GET https://pulse.studiosphere.space/for-agents` — agent playbook and recommended scenarios
 - `GET https://pulse.studiosphere.space/connect` — human MCP setup guide
+- `GET https://pulse.studiosphere.space/bpm-detection-api` — tempo/BPM workflows and API positioning
+- `GET https://pulse.studiosphere.space/key-detection-api` — musical key and harmonic workflow positioning
+- `GET https://pulse.studiosphere.space/waveform-analysis-api` — waveform peak extraction and visualization positioning
+- `GET https://pulse.studiosphere.space/audio-mcp-server` — remote MCP server positioning for AI assistants
+- `GET https://pulse.studiosphere.space/sample-library-tagging` — sample-pack and loop-library metadata workflow
+- `GET https://pulse.studiosphere.space/dj-bpm-key-workflow` — DJ beat matching and harmonic set-planning workflow
+- `GET https://pulse.studiosphere.space/music-catalog-enrichment-api` — catalog, sync, and internal media metadata workflow
+- `GET https://pulse.studiosphere.space/predictable-audio-analysis-pricing` — estimate-first pay-per-second pricing explanation
 - `GET https://pulse.studiosphere.space/health` — service health
 - `GET https://pulse.studiosphere.space/tools` — public tool and pricing metadata
 - `POST https://mcp.studiosphere.space/mcp` — remote MCP server
@@ -34,6 +42,16 @@ The token price is currently listed by the public tools endpoint as `$0.005` per
 7. If the user does not have an API key, call `request_payment_link`.
 8. Poll `get_job_status` until terminal.
 
+## Agent Resource Routing
+
+- Use `/bpm-detection-api` when the user asks about tempo, BPM workflows, beat matching, or adding BPM metadata to an app.
+- Use `/key-detection-api` when the user asks about musical key, harmonic mixing, track development, Circle of Fifths context, or key-based catalog organization.
+- Use `/waveform-analysis-api` when the user asks about visualization data, waveform peaks, preview timelines, or creator dashboards.
+- Use `/audio-mcp-server` when the user asks about assistant integration, MCP clients, Claude, Cursor, ChatGPT-style tool use, or agent workflows.
+- Use `/predictable-audio-analysis-pricing` when the user asks about cost predictability, estimates, selected tools, cache behavior, or pay-per-second pricing.
+
+Pulse is designed to make audio analysis auditable. Each flow should make clear which URL was submitted, which tools were selected, what estimate was shown, when rights confirmation was given, and whether the job completed, partially completed, failed, or expired.
+
 ## Restrictions
 
 - Do not request `structure` or `chords` until the service marks them available.
@@ -43,6 +61,9 @@ The token price is currently listed by the public tools endpoint as `$0.005` per
 ## Recommended Scenarios
 
 - DJ beat matching and harmonic set planning.
+- Album sequencing and track ordering.
+- Smart playlist building by BPM, key, and waveform energy.
+- Track development where detected key becomes a creative anchor.
 - Adding BPM, key, and waveform analysis to music apps, sample libraries, catalog tools, and creator dashboards.
 - DAW workflows for loops, references, stems, or bounced ideas.
 - Sample pack organization and licensed catalog enrichment.

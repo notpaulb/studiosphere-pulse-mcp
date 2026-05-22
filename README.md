@@ -1,20 +1,21 @@
 
-> **Privacy-first audio intelligence over the Model Context Protocol.**
-> BPM, musical key, and waveform peaks for any public audio URL. Audio is
-> processed in memory and never stored. Pay-per-second, no subscription.
+> **Rights-aware audio intelligence over the Model Context Protocol.**
+> BPM, musical key, and waveform peaks for authorized public audio URLs. Audio is
+> processed for analysis and not stored as user audio. Estimate before analysis,
+> pay per second, no subscription.
 
 [![MCP Registry](https://img.shields.io/badge/MCP%20Registry-space.studiosphere%2Fpulse-22d3ee)](https://registry.modelcontextprotocol.io/v0/servers?search=space.studiosphere%2Fpulse)
 [![Hosted](https://img.shields.io/badge/hosted-pulse.studiosphere.space-60a5fa)](https://pulse.studiosphere.space)
 [![Smithery](https://img.shields.io/badge/Smithery-studiosphere%2Fpulse-a78bfa)](https://smithery.ai/servers/studiosphere/pulse)
 [![Glama](https://img.shields.io/badge/Glama-connector-22d3ee)](https://glama.ai/mcp/connectors/space.studiosphere/pulse)
 
-**Keywords:** audio MCP · BPM detection · musical key detection · waveform analysis · music information retrieval · audio intelligence API · remote MCP server · Streamable HTTP transport.
+**Keywords:** audio MCP · rights-aware audio intelligence · BPM detection · musical key detection · waveform analysis · music information retrieval · audio intelligence API · remote MCP server · REST API · Streamable HTTP transport · estimate before analysis · pay per second.
 
 ---
 
 ## What it does
 
-Pulse analyses any public audio URL (or a direct upload, with an account) and returns structured metadata your AI assistant can act on. Shareable Google Drive, Dropbox, and other document-repository links work when the user has permission and the file is accessible to anyone with the link:
+Pulse analyses authorized public audio URLs (or a direct upload, with an account) and returns structured metadata your AI assistant can act on. Shareable Google Drive, Dropbox, and other document-repository links work when the user has permission and the file is accessible to anyone with the link:
 
 - **BPM** — tempo with confidence and beat count
 - **Musical key** — root + scale (e.g. `B minor`) with confidence
@@ -117,7 +118,7 @@ The hosted **`/connect`** page (<https://pulse.studiosphere.space/connect>) gene
 |---|---|---|
 | `estimate_cost` | none | Quote a price for a public audio URL. |
 | `analyze_track` | API key | Run analysis. Tools: `bpm`, `key`, `waveform`. |
-| `request_payment_link` | none | Stripe Checkout link for one-off use without an account. |
+| `request_payment_link` | none | Stripe Checkout link for one-off use without an account. Requires lawful-basis confirmation. |
 | `get_job_status` | none | Poll a running job and fetch the result. |
 | `get_token_balance` | API key | Banked-token balance. |
 | `list_token_packs` | none | Available token packs (10K/$50, 50K/$250, 200K/$1000). |
@@ -127,12 +128,12 @@ The hosted **`/connect`** page (<https://pulse.studiosphere.space/connect>) gene
 
 1. Call `estimate_cost` with the audio URL and selected tools.
 2. Show the user the returned `cost_display` and `duration_estimate_sec`.
-3. Confirm the user has the right to submit the audio.
+3. Confirm the user has rights, permission, lawful access, or another legal basis to submit the audio. For a user-requested folder, project, playlist, or batch, one confirmation can cover every track in that scope.
 4. Call `analyze_track` (banked tokens) **or** `request_payment_link` (anonymous one-time payment).
 5. Poll `get_job_status` until terminal (`completed`, `partial`, `failed`).
 6. Surface the result.
 
-Pricing is per-second of audio analyzed × per-tool multiplier. Banked-token pricing skips the $0.50 Stripe minimum and the per-job Checkout redirect.
+Pricing is per-second of audio analyzed × per-tool multiplier. Estimates are free before paid analysis. Banked-token pricing skips the $0.50 Stripe minimum and the per-job Checkout redirect.
 
 ## Why agents use Pulse
 
@@ -144,8 +145,10 @@ Pricing is per-second of audio analyzed × per-tool multiplier. Banked-token pri
 - Licensed music-library enrichment
 - Sync and catalog metadata workflows
 - Reference-track planning for producers and songwriters
+- Smart playlists and album sequencing context
+- Track development workflows where detected key becomes a creative anchor
 
-Agents must only submit audio when the user confirms rights to analyze it. The `analyze_track` tool requires an explicit `attestation_confirmed: true` for this reason.
+Agents must only submit audio when the user confirms rights, permission, lawful access, or another legal basis to analyze it. The `analyze_track` and `request_payment_link` tools require an explicit `attestation_confirmed: true` for this reason. For batch work, agents may rely on one user confirmation for the current folder, project, playlist, catalog selection, or other user-requested scope.
 
 ## Repository scope
 
@@ -153,7 +156,7 @@ This repository contains **only public-facing documentation, registry metadata, 
 
 ## Security
 
-Do not send private, copyrighted, or third-party audio unless you have the right to submit it for analysis. Do not publish Pulse API keys in client configs, prompts, logs, or issue reports.
+Do not send private, copyrighted, or third-party audio unless you have rights, permission, lawful access, or another legal basis to submit it for analysis. Do not publish Pulse API keys in client configs, prompts, logs, or issue reports.
 
 Security questions: pulse@studiosphere.space.
 
