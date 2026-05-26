@@ -1,8 +1,8 @@
 # StudioSphere Pulse
 
-StudioSphere Pulse is a hosted audio intelligence API and remote MCP server for music producers, catalog teams, and AI agents.
+StudioSphere Pulse is an estimate-first audio intelligence API and remote MCP server for music producers, catalog teams, and AI agents, with a one-track trial for first-time users and pay-per-use paths for ongoing analysis.
 
-Pulse v1.0 analyzes public audio URLs and returns structured results for BPM, musical key, and waveform peaks. Shareable Google Drive, Dropbox, and other document-repository links work when the user has permission and the file is accessible to anyone with the link. Track structure segmentation and chord transcription are coming soon and should not be requested from v1.0 tools.
+Pulse v1.0 analyzes public audio URLs and returns structured results for BPM, musical key, and waveform peaks. Shareable Google Drive, Dropbox, and other document-repository links work when the user has permission and the file is accessible to anyone with the link. First-time users can use `start_trial` for one short URL analysis before account setup. Track structure segmentation and chord transcription are coming soon and should not be requested from v1.0 tools.
 
 ## Endpoints
 
@@ -19,6 +19,7 @@ Pulse v1.0 analyzes public audio URLs and returns structured results for BPM, mu
 - `GET https://pulse.studiosphere.space/predictable-audio-analysis-pricing` — estimate-first pay-per-second pricing explanation
 - `GET https://pulse.studiosphere.space/health` — service health
 - `GET https://pulse.studiosphere.space/tools` — public tool and pricing metadata
+- `POST https://pulse.studiosphere.space/trial/start` — email-free temporary trial key for one short URL analysis
 - `POST https://mcp.studiosphere.space/mcp` — remote MCP server
 
 ## Current Tool Metadata
@@ -38,9 +39,10 @@ The token price is currently listed by the public tools endpoint as `$0.005` per
 3. Call `estimate_cost`.
 4. Show the cost to the user.
 5. Confirm the user has rights, permission, lawful access, or another legal basis to submit the audio. For a user-requested folder, project, playlist, or batch, one confirmation can cover every track in that scope.
-6. If the user has an API key, call `analyze_track`.
-7. If the user does not have an API key, call `request_payment_link`.
-8. Poll `get_job_status` until terminal.
+6. If the user has no key and wants to try Pulse first, call `start_trial`; use the returned temporary key for one short URL analysis.
+7. If the user has an API key or trial key, call `analyze_track`.
+8. If the user does not have an API key and prefers one-off paid analysis, call `request_payment_link`.
+9. Poll `get_job_status` until terminal.
 
 ## Agent Resource Routing
 

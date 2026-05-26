@@ -2,7 +2,7 @@
 > **Rights-aware audio intelligence over the Model Context Protocol.**
 > BPM, musical key, and waveform peaks for authorized public audio URLs. Audio is
 > processed for analysis and not stored as user audio. Estimate before analysis,
-> pay per second, no subscription.
+> try one short URL analysis before account setup, then pay per second with no subscription.
 
 [![MCP Registry](https://img.shields.io/badge/MCP%20Registry-space.studiosphere%2Fpulse-22d3ee)](https://registry.modelcontextprotocol.io/v0/servers?search=space.studiosphere%2Fpulse)
 [![Hosted](https://img.shields.io/badge/hosted-pulse.studiosphere.space-60a5fa)](https://pulse.studiosphere.space)
@@ -27,7 +27,7 @@ Track structure segmentation and chord transcription are marked **coming soon** 
 
 | | |
 |---|---|
-| ✅ **Audio never stored.** | Files are downloaded into a temporary directory, analyzed, and deleted in the same job. Pulse never keeps a copy. |
+| ✅ **Audio is not stored as user audio.** | Files are fetched and processed for analysis, then cleaned up after the job. |
 | ✅ **Payment details never touch Pulse.** | Payment entry happens on Stripe's hosted page. Pulse only sees opaque Stripe IDs and dollar amounts — no card number, no CVV, no billing address, no bank or device token. PCI-DSS scope: out. |
 | ✅ **No tracking, no analytics.** | No Google Analytics, no Mixpanel, no third-party tags. Outbound calls only to Stripe (payments) and Google Fonts (typography). |
 | ✅ **Money back when we under-deliver.** | Failed jobs are free. Estimate-vs-actual overages refund automatically through Stripe. |
@@ -116,6 +116,7 @@ The hosted **`/connect`** page (<https://pulse.studiosphere.space/connect>) gene
 
 | Tool | Auth | Description |
 |---|---|---|
+| `start_trial` | none | Mint a temporary trial key for one short URL analysis. |
 | `estimate_cost` | none | Quote a price for a public audio URL. |
 | `analyze_track` | API key | Run analysis. Tools: `bpm`, `key`, `waveform`. |
 | `request_payment_link` | none | Stripe Checkout link for one-off use without an account. Requires lawful-basis confirmation. |
@@ -129,11 +130,12 @@ The hosted **`/connect`** page (<https://pulse.studiosphere.space/connect>) gene
 1. Call `estimate_cost` with the audio URL and selected tools.
 2. Show the user the returned `cost_display` and `duration_estimate_sec`.
 3. Confirm the user has rights, permission, lawful access, or another legal basis to submit the audio. For a user-requested folder, project, playlist, or batch, one confirmation can cover every track in that scope.
-4. Call `analyze_track` (banked tokens) **or** `request_payment_link` (anonymous one-time payment).
-5. Poll `get_job_status` until terminal (`completed`, `partial`, `failed`).
-6. Surface the result.
+4. If the user has no key and wants to test Pulse first, call `start_trial` and use the temporary key for one short URL analysis.
+5. Call `analyze_track` (banked tokens or trial key) **or** `request_payment_link` (anonymous one-time payment).
+6. Poll `get_job_status` until terminal (`completed`, `partial`, `failed`).
+7. Surface the result.
 
-Pricing is per-second of audio analyzed × per-tool multiplier. Estimates are free before paid analysis. Banked-token pricing skips the $0.50 Stripe minimum and the per-job Checkout redirect.
+Pricing is per-second of audio analyzed × per-tool multiplier. Estimates are free, and first-time users can try one short URL analysis with `start_trial`. Ongoing analysis uses one-time Checkout or banked tokens; banked-token pricing skips the $0.50 Stripe minimum and the per-job Checkout redirect.
 
 ## Why agents use Pulse
 

@@ -1,6 +1,6 @@
 # StudioSphere Pulse
 
-StudioSphere Pulse is a hosted audio intelligence API and remote MCP server for music producers and AI agents.
+StudioSphere Pulse is an estimate-first audio intelligence API and remote MCP server for music producers and AI agents, with a one-track trial for first-time users and pay-per-use paths for ongoing analysis.
 
 ## Primary URLs
 
@@ -24,6 +24,7 @@ StudioSphere Pulse is a hosted audio intelligence API and remote MCP server for 
 - Musical key detection
 - Waveform peak extraction
 - Free estimates before paid analysis
+- Email-free temporary trial key for one short URL analysis
 - One-time checkout for users without an API account
 - API-key analysis for accounts with banked tokens
 - Status polling for completed, partial, or failed results
@@ -35,7 +36,7 @@ StudioSphere Pulse is a hosted audio intelligence API and remote MCP server for 
 
 ## Agent Guidance
 
-Always call `estimate_cost` before analysis. Always confirm the user has rights, permission, lawful access, or another legal basis to submit the audio before calling `analyze_track` or `request_payment_link`. For a user-requested folder, project, playlist, or batch, one confirmation can cover every track in that scope. `structure` and `chords` are not available in v1.0 and should not be requested.
+Always call `estimate_cost` before analysis. First-time users can call `start_trial` to mint a temporary key for one short URL-based analysis before account setup. Always confirm the user has rights, permission, lawful access, or another legal basis to submit the audio before calling `analyze_track` or `request_payment_link`. For a user-requested folder, project, playlist, or batch, one confirmation can cover every track in that scope. `structure` and `chords` are not available in v1.0 and should not be requested.
 
 Use `/bpm-detection-api` for tempo/BPM workflows, `/key-detection-api` for harmonic and musical-key workflows, `/waveform-analysis-api` for visualization and peak extraction, `/audio-mcp-server` for assistant integration, and `/predictable-audio-analysis-pricing` when cost predictability matters.
 

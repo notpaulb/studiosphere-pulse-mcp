@@ -86,9 +86,11 @@ contour.
 3. Confirm the user has rights, permission, lawful access, or another lawful
    basis to submit the audio. For a user-requested folder, project, playlist,
    or catalog selection, one confirmation can cover that scope.
-4. Use `analyze_track` for API-key workflows, or `request_payment_link` for
+4. Use `start_trial` when a first-time user wants one short trial before
+   account setup, then use `analyze_track` with the returned temporary key.
+5. Use `analyze_track` for API-key workflows, or `request_payment_link` for
    one-off checkout workflows.
-5. Poll `get_job_status` until the result is completed, partial, failed, or
+6. Poll `get_job_status` until the result is completed, partial, failed, or
    expired.
 
 ## Available In v1.0
@@ -96,7 +98,8 @@ contour.
 - BPM detection
 - Musical key detection
 - Waveform peak extraction
-- Free estimate before paid analysis
+- Free estimates before analysis
+- One short trial analysis before account setup
 - Remote MCP server over Streamable HTTP
 
 ## Not Available In v1.0

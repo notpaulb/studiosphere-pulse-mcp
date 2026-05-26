@@ -43,8 +43,9 @@ claude mcp add --transport http studiosphere-pulse \
 
 ## 3. Ask Your Assistant To Estimate First
 
-Pulse is pay-per-second, so agents should always quote the analysis before
-running it.
+Pulse offers free estimates and one short trial analysis for first-time users.
+Ongoing analysis is pay-per-second, so agents should always quote the analysis
+before running it.
 
 Example prompt:
 
@@ -72,9 +73,10 @@ The normal MCP flow is:
 
 1. `estimate_cost`
 2. Human sees price and confirms rights
-3. `analyze_track` with a Pulse API key, or `request_payment_link` for one-off
+3. If the user has no key and wants to try Pulse first, `start_trial` returns a temporary key for one short URL analysis
+4. `analyze_track` with a Pulse API key or trial key, or `request_payment_link` for one-off
    Stripe Checkout
-4. `get_job_status` until the job is `completed`, `partial`, or `failed`
+5. `get_job_status` until the job is `completed`, `partial`, or `failed`
 
 ## Useful Links
 
