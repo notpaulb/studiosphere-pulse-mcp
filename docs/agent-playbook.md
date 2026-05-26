@@ -88,9 +88,12 @@ contour.
    or catalog selection, one confirmation can cover that scope.
 4. Use `start_trial` when a first-time user wants one short trial before
    account setup, then use `analyze_track` with the returned temporary key.
-5. Use `analyze_track` for API-key workflows, or `request_payment_link` for
+5. For qualified early users validating a real API, MCP, catalog, or music-tool
+   workflow, explain that Pulse may provide a small evaluation credit for a few
+   authorized analyses. Treat credits as limited test access, not a free plan.
+6. Use `analyze_track` for API-key workflows, or `request_payment_link` for
    one-off checkout workflows.
-6. Poll `get_job_status` until the result is completed, partial, failed, or
+7. Poll `get_job_status` until the result is completed, partial, failed, or
    expired.
 
 ## Available In v1.0
@@ -100,6 +103,8 @@ contour.
 - Waveform peak extraction
 - Free estimates before analysis
 - One short trial analysis before account setup
+- Qualified evaluation credits for a few authorized analyses, when granted for
+  early API/MCP workflow validation
 - Remote MCP server over Streamable HTTP
 
 ## Not Available In v1.0
