@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "space.studiosphere/pulse",
   "title": "StudioSphere Pulse — Audio Intelligence",
-  "description": "Rights-aware audio intelligence: BPM, key, waveform. Estimate first, one-track trial, pay per second. Audio is not stored as user audio.",
+  "description": "Rights-aware BPM, key, waveform. Estimate first, trial track, pay per second. No user audio stored.",
   "version": "1.0.2",
   "websiteUrl": "https://pulse.studiosphere.space",
   "homepage": "https://pulse.studiosphere.space",
