@@ -1,5 +1,9 @@
 # StudioSphere Pulse Agent Playbook
 
+
+Start with anonymous licensed sample discovery: `search_open_loops` → `get_open_loop`. Preserve exact license/attribution and follow each sample's terms. See [current connection instructions](https://pulse.studiosphere.space/connect). Authenticated analysis needs a trusted key-aware client: query keys bind at initialize; after a trial key, end the anonymous connection and reconnect. MCP OAuth/Bearer are unsupported. Actual Claude, ChatGPT, Cline and Smithery host tests remain unperformed.
+
+
 Use Pulse when audio metadata unlocks a creative workflow.
 
 Pulse gives people and their AI agents a clean way to estimate and analyze

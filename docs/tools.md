@@ -2,7 +2,11 @@
 
 StudioSphere Pulse exposes audio analysis capabilities through a hosted MCP server and API.
 
-## Available in v1.0
+## Anonymous MCP discovery
+
+Connect at `https://mcp.studiosphere.space/mcp`; call `search_open_loops`, then `get_open_loop`. Preserve the returned exact license, license URL and attribution. These two tools cost no tokens and require no account/key. See [connection instructions](https://pulse.studiosphere.space/connect).
+
+## Available analysis outputs
 
 ### `waveform`
 
@@ -34,16 +38,16 @@ The live tool list and pricing metadata are available at:
 curl https://pulse.studiosphere.space/tools
 ```
 
-At publication time, the service reports:
+October7 default snapshot (read `/tools` for current values; costs and BPM/key are estimates requiring review):
 
 ```json
 {
   "token_price_usd": 0.005,
   "cache_hit_price_usd": 0.001,
   "tools": [
-    { "name": "waveform", "tokens_per_second": 0.3, "status": "available" },
-    { "name": "bpm", "tokens_per_second": 0.5, "status": "available" },
-    { "name": "key", "tokens_per_second": 0.5, "status": "available" }
+    { "name": "waveform", "tokens_per_second": 0.06, "status": "available" },
+    { "name": "bpm", "tokens_per_second": 0.10, "status": "available" },
+    { "name": "key", "tokens_per_second": 0.10, "status": "available" }
   ],
   "coming_soon": [
     { "name": "structure", "tokens_per_second": 0.7, "status": "coming_soon" },
