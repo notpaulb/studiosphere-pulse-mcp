@@ -1,90 +1,55 @@
-# Analyze BPM, Key, And Waveform With Pulse MCP
+# Pulse MCP quickstart
 
-StudioSphere Pulse is a hosted MCP server for music-aware AI workflows. It lets
-Claude Desktop, Claude Code, Cursor, and other MCP clients estimate and analyze
-authorized audio without downloading tools locally.
+Discover free, licensed loops and analyze authorized audio for BPM, musical key and waveform data. Start with free discovery and see estimated costs before paid analysis.
 
-Pulse returns structured metadata:
+## Useful first connection
 
-- BPM with confidence and beat count
-- Musical key with confidence
-- Waveform peaks for visualization
+Human guide: https://pulse.studiosphere.space/connect (also reached from the product `/mcp` entry). The actual Streamable HTTP endpoint is:
 
-Audio is analyzed for the job and deleted after processing. Pulse does not keep
-a copy of submitted audio.
+```text
+https://mcp.studiosphere.space/mcp
+```
 
-## 1. Get A Pulse API Key
+Connect without authentication. Call `search_open_loops`, then `get_open_loop` for a returned `pol_id`. Show preview/download and preserve license, license URL and attribution; follow each sample's terms. No key, account, tokens or payment is needed.
 
-Create an account at:
+Claude remote setup uses Customize → Connectors → Add custom connector, the public endpoint and No sign in; organization permissions and labels can vary. Do not use Desktop's local configuration editor for this remote connection.
 
-https://pulse.studiosphere.space/signup
+Claude Code candidate command (quoted for zsh):
 
-Store the key when it is shown. Pulse keys start with `sk_pulse_` and are shown
-once.
+```bash
+claude mcp add --transport http studiosphere-pulse 'https://mcp.studiosphere.space/mcp'
+claude mcp list
+```
 
-## 2. Connect Your MCP Client
+Host-specific instructions and primary references are on `/connect`. Actual Claude, ChatGPT, Cline and Smithery host tests are unperformed; SDK/protocol checks are distinct. Paid-host support is unverified. ChatGPT cannot present custom Pulse API keys; Pulse currently has no OAuth flow.
 
-Use the setup wizard:
+## Optional trial, with human approval
 
-https://pulse.studiosphere.space/connect
-
-The direct MCP endpoint is:
+`start_trial` creates a private temporary key. End the anonymous connection and reconnect to initialize with the private query-key URL in a trusted client before using it. A later request key does not upgrade an existing session. MCP OAuth and bearer authentication are unsupported; REST Bearer support is separate.
 
 ```text
 https://mcp.studiosphere.space/mcp?api_key=YOUR_PULSE_API_KEY
 ```
 
-Claude Code example:
+Keep actual keys out of shared logs, screenshots, prompts and version control. Query URLs can leak through client history/configuration. Do not create or rotate credentials automatically.
 
-```bash
-claude mcp add --transport http studiosphere-pulse \
-  'https://mcp.studiosphere.space/mcp?api_key=YOUR_PULSE_API_KEY'
-```
+Read `get_token_balance` for the returned allowance. October 7 defaults are 78 tokens, up to 300 seconds, 24-hour expiry, one completed/partial URL analysis and at most two queued attempts if the first fails. Read live https://pulse.studiosphere.space/tools; configuration and per-key limits may differ. Unused tokens do not grant another song.
 
-## 3. Ask Your Assistant To Estimate First
+Use the original 180-second CC0 example when it fits the allowance:
+https://pulse.studiosphere.space/assets/pulse-demo.mp3
 
-Pulse offers free estimates and one short trial analysis for first-time users.
-Qualified early builders can request a small evaluation credit for a few
-authorized API/MCP workflow tests. Ongoing analysis is pay-per-second, so agents
-should always quote the analysis before running it.
+Provenance/license: https://pulse.studiosphere.space/assets/pulse-demo.json
 
-Example prompt:
+Call `estimate_cost`, review the estimate, confirm rights/permission/lawful access/another legal basis, then `analyze_track` with the quote ID and `attestation_confirmed:true`. Poll `get_job_status`; BPM and musical key are estimates requiring review. Structure and chords are unavailable roadmap items.
 
-```text
-Use StudioSphere Pulse to estimate BPM, key, and waveform analysis for this
-audio URL: https://example.com/track.mp3
-```
+If interrupted, retain the private key and job ID, reconnect and poll before retrying. Do not mint another key or resubmit an uncertain job. On `estimate_pricing_changed`, get a fresh free estimate and obtain approval again before processing or payment.
 
-## 4. Confirm Rights Before Analysis
+## Ongoing analysis
 
-Pulse requires a lawful-basis confirmation before analysis. A good assistant
-should ask before calling `analyze_track`:
+October 7 default three-minute BPM/key/waveform example estimates 47 tokens, exact $0.235 displayed $0.24; five minutes estimates 78 tokens/$0.39. Final costs use measured duration. Current tiers are returned by `list_token_packs`, including 1K/$5 Starter; do not rely on fixed examples for purchasing. One-off Checkout has a $0.50 floor; banked usage has no per-job minimum.
 
-```text
-Can you confirm you have rights, permission, lawful access, or another legal
-basis to submit this audio for analysis?
-```
+Private account flow: `get_token_balance` → `estimate_cost` → review cost/rights → `analyze_track` → `get_job_status`. Checkout-link creation is not collected revenue. Keep paid promotion gated on payment/refund readiness and tested host authentication.
 
-For a user-requested folder, playlist, catalog selection, or batch, one
-confirmation can cover the whole requested scope.
+[Privacy](https://pulse.studiosphere.space/privacy) · [Terms](https://pulse.studiosphere.space/terms) · [Docs](https://pulse.studiosphere.space/docs) · [Journey inventory](https://pulse.studiosphere.space/.well-known/pulse/agent-journey.json)
 
-## 5. Run Analysis And Poll Results
-
-The normal MCP flow is:
-
-1. `estimate_cost`
-2. Human sees price and confirms rights
-3. If the user has no key and wants to try Pulse first, `start_trial` returns a temporary key for one short URL analysis
-4. If the user is validating a real API, MCP, catalog, or music-tool workflow, mention that qualified early users may request a small evaluation credit for a few authorized analyses
-5. `analyze_track` with a Pulse API key or trial key, or `request_payment_link` for one-off
-   Stripe Checkout
-6. `get_job_status` until the job is `completed`, `partial`, or `failed`
-
-## Useful Links
-
-- Product: https://pulse.studiosphere.space
-- Setup: https://pulse.studiosphere.space/connect
-- MCP Registry: https://registry.modelcontextprotocol.io/v0/servers?search=space.studiosphere%2Fpulse
-- Smithery: https://smithery.ai/servers/studiosphere/pulse
-- Glama: https://glama.ai/mcp/connectors/space.studiosphere/pulse
-- Public docs repo: https://github.com/notpaulb/studiosphere-pulse-mcp
+Support: support@studiosphere.space; never send a key.
