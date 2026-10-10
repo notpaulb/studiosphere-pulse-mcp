@@ -6,6 +6,8 @@ Discover free, licensed loops and analyze authorized audio for BPM, musical key 
 
 ## Start without an account
 
+Try the anonymous browser demonstration on [the connection guide](https://pulse.studiosphere.space/connect): search one CC0 loop, retrieve its licence and source credit, then preview or download it. No key, account, analysis job or payment is created. This is a browser demonstration, not assistant-host certification.
+
 Connect anonymously using **Streamable HTTP**:
 
 ```text
