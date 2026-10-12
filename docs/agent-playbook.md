@@ -1,7 +1,7 @@
 # StudioSphere Pulse Agent Playbook
 
 
-Start with anonymous licensed sample discovery: `search_open_loops` → `get_open_loop`. Preserve exact license/attribution and follow each sample's terms. See [current connection instructions](https://pulse.studiosphere.space/connect). Authenticated analysis needs a trusted key-aware client: query keys bind at initialize; after a trial key, end the anonymous connection and reconnect. MCP OAuth/Bearer are unsupported. Actual Claude, ChatGPT, Cline and Smithery host tests remain unperformed.
+Start with anonymous licensed sample discovery: `search_open_loops` → `get_open_loop`. Preserve exact license/attribution and follow each sample's terms. See [current connection instructions](https://pulse.studiosphere.space/connect). Authenticated analysis needs a trusted key-aware client: query keys bind at initialize; after a trial key, end the anonymous connection and reconnect. MCP OAuth/Bearer are unsupported. One existing Claude connector paid workflow was validated; other host/authentication setups and minimum-charge purchases remain untested.
 
 
 Use Pulse when audio metadata unlocks a creative workflow.
@@ -117,3 +117,20 @@ contour.
 - Mastering or loudness correction
 - Chord transcription
 - Track structure segmentation
+
+## Explicit short-track Checkout offer
+
+Below the normal admission minimum, `checkout.eligible` remains false. Read
+`analysis_options.checkout.minimum_charge_offer`, when present. Show the estimated
+upfront payment and `minimum_final_cost_usd`; the existing final-cost floor is
+US$0.50, and refund thresholds can leave a higher net payment. Free trial and
+already-funded tokens remain alternatives. Never increase analysis scope to qualify.
+
+Only after explicit human acceptance, call `request_payment_link` with the same
+`job_estimate_id`, `attestation_confirmed:true`, `accept_minimum_charge:true`, and
+`max_upfront_amount_cents` set to the approved upfront ceiling in whole USD cents.
+Rights approval alone is not spending approval. A quote or buffer change above that
+ceiling returns `checkout_amount_exceeds_approval` before a new purchase is created.
+Review again; never raise the ceiling or retry automatically. On interruption,
+retain the original job and payment link privately and poll that job. These are
+local protocol/fixture-tested controls, not evidence of a real minimum-charge purchase.
