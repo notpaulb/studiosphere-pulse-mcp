@@ -4,7 +4,7 @@
 
 Connect anonymously to `https://mcp.studiosphere.space/mcp`. Call `search_open_loops`, then `get_open_loop` for exact license, license URL, attribution, preview and download. Preserve these rights details; follow each sample's license. Discovery needs no account, key or tokens.
 
-Authentication: a private query API key binds during MCP initialize. After `start_trial`, end the anonymous connection and reconnect with that key before analysis. Later request keys do not upgrade an existing session. MCP OAuth and bearer authentication are unsupported; REST Bearer authentication is separate. One paid workflow through an existing Claude connector was validated on October 12, 2026. Other hosts, authentication setups and actual minimum-charge purchases remain untested; SDK/protocol checks are separate evidence. See `/connect`.
+Authentication: a private query API key binds during MCP initialize. After `start_trial`, end the anonymous connection and reconnect with that key before analysis. Later request keys do not upgrade an existing session. MCP OAuth and bearer authentication are unsupported; REST Bearer authentication is separate. Two scoped workflows through one existing configured Claude connector were validated on October 12, 2026: buffered Checkout with an automatic refund, and explicit minimum-charge Checkout after tool refresh and a fresh conversation. The short-track BPM/key/waveform job completed; provider-backed receipts confirmed US$0.50 captured, US$0 refunded and US$0.50 net. This does not certify anonymous initialization, OAuth, trial/banked-token workflows, other hosts or live over-cap rejection; cap rejection and uncertain-submission controls have local fixture evidence. See `/connect`.
 
 StudioSphere Pulse is an estimate-first audio intelligence API and remote MCP server for music producers and AI agents, with a one-track trial for first-time users and pay-per-use paths for ongoing analysis.
 
@@ -162,5 +162,12 @@ Only after explicit human acceptance, call `request_payment_link` with the same
 Rights approval alone is not spending approval. A quote or buffer change above that
 ceiling returns `checkout_amount_exceeds_approval` before a new purchase is created.
 Review again; never raise the ceiling or retry automatically. On interruption,
-retain the original job and payment link privately and poll that job. These are
-local protocol/fixture-tested controls, not evidence of a real minimum-charge purchase.
+retain the original job and payment link privately and poll that job. Live minimum-charge completion and receipt evidence covers the one scoped Claude purchase described above; live over-cap rejection and broader host compatibility remain unverified.
+
+## Existing Claude connector: stale tools or interrupted chat
+
+Use these steps only if an existing StudioSphere Pulse connector is missing the new `request_payment_link` fields. In Claude, open **Settings → Customize → Connectors → Yours → StudioSphere Pulse → More options → Refresh tools list** (labels can vary). Keep the saved connector URL, private key and tool approval permissions unchanged; do not remove/recreate the connector or create a new key.
+
+Start a **fresh conversation using the same existing connector**. A refresh did not update the already-open conversation in the observed test. Confirm the loaded tool includes `accept_minimum_charge` (boolean) and `max_upfront_amount_cents` (integer) before any approved minimum-charge request. If those fields are still missing, stop and contact support; do not submit using the older schema or omit the acceptance/ceiling.
+
+Carry the original `job_id`, `payment_url` and `continuation.review_url` privately into the fresh conversation. After an interruption, call `get_job_status` for the original saved job; never create a replacement purchase, new analysis or new key to resume it. If the payment URL is lost, contact support. Refreshing tools or starting a chat is not spending approval: the human must explicitly accept the minimum final cost and upfront ceiling and complete Checkout themselves.

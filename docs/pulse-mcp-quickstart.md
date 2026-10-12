@@ -21,7 +21,7 @@ claude mcp add --transport http studiosphere-pulse 'https://mcp.studiosphere.spa
 claude mcp list
 ```
 
-Host-specific instructions and primary references are on `/connect`. One existing Claude connector paid workflow was validated on October 12, 2026; other host/authentication setups and minimum-charge purchases remain untested. SDK/protocol checks are distinct. ChatGPT cannot present custom Pulse API keys; Pulse currently has no OAuth flow.
+Host-specific instructions and primary references are on `/connect`. Two scoped workflows through one existing configured Claude connector were validated on October 12, 2026: buffered Checkout with an automatic refund, and explicit minimum-charge Checkout after tool refresh and a fresh conversation. The short-track BPM/key/waveform job completed; provider-backed receipts confirmed US$0.50 captured, US$0 refunded and US$0.50 net. This does not certify anonymous initialization, OAuth, trial/banked-token workflows, other hosts or live over-cap rejection; cap rejection and uncertain-submission controls have local fixture evidence. ChatGPT cannot present custom Pulse API keys; Pulse currently has no OAuth flow.
 
 ## Optional trial, with human approval
 
@@ -58,6 +58,8 @@ Support: support@studiosphere.space; never send a key.
 
 ## Estimate continuation options
 
+On the [Pulse homepage](https://pulse.studiosphere.space/), **Copy task for Claude** appears after a current anonymous free estimate. It copies the source, selected tools and advisory quote, including the estimated upfront payment and any minimum final-cost floor. It makes no API call and grants no payment consent. The action is unavailable with a key, after submission or uncertainty, or when the quote expires or its source changes. Review the private quote and URL before sharing them with your existing Pulse connector; confirm rights and explicitly approve spending before human-completed Checkout. After interruption, preserve and poll the original saved job rather than buying again. This new handoff has local browser clipboard and helper-fixture evidence only; the two previously validated existing-connector Checkout workflows do not constitute an actual host test of it. No new MCP tool is added.
+
 Read `estimate_cost.analysis_options`. An eligible anonymous one-off quote can use `request_payment_link` without a Pulse key, after explicit link-creation approval and rights confirmation. The human reviews and completes hosted Checkout. A buffer, measured-cost floor and refund thresholds can keep net payment above measured analysis cost; read https://pulse.studiosphere.space/terms#pricing. Reused links can omit charge fields; never present `cost_display` as the captured amount.
 
 Trial duration fit is not entitlement: approval is required before key issuance, then reconnect and verify the per-key allowance. Banked analysis requires an existing initialized key and separately verified balance. These are advisory choices, not paid-host certification or automatic purchase authority.
@@ -66,7 +68,7 @@ Trial duration fit is not entitlement: approval is required before key issuance,
 
 An eligible estimate can continue through `request_payment_link` without an account or key, after rights confirmation and explicit human approval. Save its `job_id`, `payment_url` and `continuation.review_url` privately, then present the Checkout link for hosted amount review and human payment. After the human returns or a disconnected session, reconnect anonymously and call `get_job_status` for that same job. Follow its advisory `continuation` and pause after the suggested waiting limit. Never create a replacement purchase simply to resume.
 
-Analysis completion is not receipt/refund evidence: `financial_status_verified` remains false. Status and result pages cannot restore a lost Checkout link; contact support with the saved job ID instead of creating another purchase. Review terminal Checkout billing on the saved result page, or during recovery read the existing REST `receipt_api_url` on demand; it is not an MCP tool. Local SDK fixtures cover this handoff with synthetic states; one separate existing Claude connector paid workflow was validated, while minimum-charge purchases and other host setups remain untested.
+Analysis completion is not receipt/refund evidence: `financial_status_verified` remains false. Status and result pages cannot restore a lost Checkout link; contact support with the saved job ID instead of creating another purchase. Review terminal Checkout billing on the saved result page, or during recovery read the existing REST `receipt_api_url` on demand; it is not an MCP tool. Local SDK fixtures cover this handoff with synthetic states; two scoped existing-connector Claude Checkout workflows, including one minimum-charge purchase, were validated separately. Anonymous Claude initialization, other host/authentication setups and live over-cap rejection remain unverified.
 
 ## Explicit short-track Checkout offer
 
@@ -82,5 +84,12 @@ Only after explicit human acceptance, call `request_payment_link` with the same
 Rights approval alone is not spending approval. A quote or buffer change above that
 ceiling returns `checkout_amount_exceeds_approval` before a new purchase is created.
 Review again; never raise the ceiling or retry automatically. On interruption,
-retain the original job and payment link privately and poll that job. These are
-local protocol/fixture-tested controls, not evidence of a real minimum-charge purchase.
+retain the original job and payment link privately and poll that job. Live minimum-charge completion and receipt evidence covers the one scoped Claude purchase described above; live over-cap rejection and broader host compatibility remain unverified.
+
+## Existing Claude connector: stale tools or interrupted chat
+
+Use these steps only if an existing StudioSphere Pulse connector is missing the new `request_payment_link` fields. In Claude, open **Settings → Customize → Connectors → Yours → StudioSphere Pulse → More options → Refresh tools list** (labels can vary). Keep the saved connector URL, private key and tool approval permissions unchanged; do not remove/recreate the connector or create a new key.
+
+Start a **fresh conversation using the same existing connector**. A refresh did not update the already-open conversation in the observed test. Confirm the loaded tool includes `accept_minimum_charge` (boolean) and `max_upfront_amount_cents` (integer) before any approved minimum-charge request. If those fields are still missing, stop and contact support; do not submit using the older schema or omit the acceptance/ceiling.
+
+Carry the original `job_id`, `payment_url` and `continuation.review_url` privately into the fresh conversation. After an interruption, call `get_job_status` for the original saved job; never create a replacement purchase, new analysis or new key to resume it. If the payment URL is lost, contact support. Refreshing tools or starting a chat is not spending approval: the human must explicitly accept the minimum final cost and upfront ceiling and complete Checkout themselves.
