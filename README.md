@@ -81,6 +81,14 @@ For eligible quotes, `analysis_options.checkout.upfront_payment_estimate` previe
 
 No payment or key is created by estimation. Never increase analysis scope to reach a charge floor or automatically retry an uncertain purchase. MCP initialization also supplies this route-selection guidance; protocol/SDK validation remains separate from actual host compatibility.
 
+## Resume one-off Checkout analysis
+
+For eligible authorized audio, stay on the anonymous connection: estimate → review costs and rights → approve link creation → `request_payment_link` → human payment → `get_job_status`. No Pulse account, key or pack is required.
+
+Save the returned `job_id` and `continuation.review_url` privately before presenting `payment_url`. After payment or an interrupted connection, reconnect anonymously and call `get_job_status` for the same job. Follow `continuation`: human Checkout pauses for the user, waiting supplies a suggested interval and attempt limit, results need review, and recovery requires checking the saved job or contacting support. Pause after the waiting limit; do not create another analysis or purchase to resume it.
+
+`continuation.financial_status_verified` is false. A link, redirect, completed analysis or analysis cost does not prove payment or refund settlement. The saved result page shows billing separately for Checkout jobs; `receipt_api_url` is an existing on-demand REST read, not another MCP tool. SDK fixtures test reconnection and synthetic payment states, not real payments or assistant-host compatibility.
+
 ## Optional authorized audio trial
 
 Create credentials only with the human's approval. First-time users can call `start_trial` for a private temporary key. **End the anonymous connection and reconnect to initialize with that key** in a trusted key-aware client. Authentication is bound at initialization; adding a key to a later request does not upgrade an existing session.
@@ -116,7 +124,7 @@ Audio is processed for analysis and not stored as user audio; temporary processi
 
 [Terms](https://pulse.studiosphere.space/terms) · [API docs](https://pulse.studiosphere.space/docs) · [Machine-readable journey](https://pulse.studiosphere.space/.well-known/pulse/agent-journey.json) · [MCP health](https://mcp.studiosphere.space/health)
 
-Existing listings: [Official Registry](https://registry.modelcontextprotocol.io/v0.1/servers?search=space.studiosphere%2Fpulse) (`space.studiosphere/pulse`,1.0.2), [Smithery](https://smithery.ai/servers/studiosphere/pulse), [Glama connector](https://glama.ai/mcp/connectors/space.studiosphere/pulse). A listing is not a compatibility endorsement.
+Existing listings: [Official Registry](https://registry.modelcontextprotocol.io/v0.1/servers?search=space.studiosphere%2Fpulse) (`space.studiosphere/pulse`,1.0.3), [Smithery](https://smithery.ai/servers/studiosphere/pulse), [Glama connector](https://glama.ai/mcp/connectors/space.studiosphere/pulse). A listing is not a compatibility endorsement.
 
 Support/security questions: **support@studiosphere.space**. Never send your API key.
 
