@@ -21,7 +21,7 @@ claude mcp add --transport http studiosphere-pulse 'https://mcp.studiosphere.spa
 claude mcp list
 ```
 
-Host-specific instructions and primary references are on `/connect`. Actual Claude, ChatGPT, Cline and Smithery host tests are unperformed; SDK/protocol checks are distinct. Paid-host support is unverified. ChatGPT cannot present custom Pulse API keys; Pulse currently has no OAuth flow.
+Host-specific instructions and primary references are on `/connect`. One existing Claude connector paid workflow was validated on October 12, 2026; other host/authentication setups and minimum-charge purchases remain untested. SDK/protocol checks are distinct. ChatGPT cannot present custom Pulse API keys; Pulse currently has no OAuth flow.
 
 ## Optional trial, with human approval
 
