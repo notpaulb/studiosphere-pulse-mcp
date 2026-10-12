@@ -62,7 +62,7 @@ Actual **Claude, ChatGPT, Cline and Smithery host onboarding has not been tested
 | `start_trial` | No | Creates a private temporary key; reconnect before use. |
 | `analyze_track` | Yes | Submit authorized audio for BPM/key estimates and waveform. |
 | `request_payment_link` | No | Creates one-off Checkout after rights confirmation; human completes payment. |
-| `get_job_status` | No | Job status, results and review notes. |
+| `get_job_status` | No | Saved-job continuation, results and review notes. |
 | `get_token_balance` | Yes | Private account/trial balance and allowance. |
 | `list_token_packs` | No | Current tiers, including Starter. |
 | `purchase_token_pack` | Yes | Creates Checkout to fund an account; human completes payment. |
@@ -85,9 +85,9 @@ No payment or key is created by estimation. Never increase analysis scope to rea
 
 For eligible authorized audio, stay on the anonymous connection: estimate → review costs and rights → approve link creation → `request_payment_link` → human payment → `get_job_status`. No Pulse account, key or pack is required.
 
-Save the returned `job_id` and `continuation.review_url` privately before presenting `payment_url`. After payment or an interrupted connection, reconnect anonymously and call `get_job_status` for the same job. Follow `continuation`: human Checkout pauses for the user, waiting supplies a suggested interval and attempt limit, results need review, and recovery requires checking the saved job or contacting support. Pause after the waiting limit; do not create another analysis or purchase to resume it.
+Save the returned `job_id`, `payment_url` and `continuation.review_url` privately before presenting `payment_url`. After payment or an interrupted connection, reconnect anonymously and call `get_job_status` for the same job. Follow `continuation`: human Checkout pauses for the user, waiting supplies a suggested interval and attempt limit, results need review, and recovery requires checking the saved job or contacting support. Pause after the waiting limit; do not create another analysis or purchase to resume it.
 
-`continuation.financial_status_verified` is false. A link, redirect, completed analysis or analysis cost does not prove payment or refund settlement. The saved result page shows billing separately for Checkout jobs; `receipt_api_url` is an existing on-demand REST read, not another MCP tool. SDK fixtures test reconnection and synthetic payment states, not real payments or assistant-host compatibility.
+`continuation.financial_status_verified` is false. A link, redirect, completed analysis or analysis cost does not prove payment or refund settlement. Status and result pages cannot restore a lost Checkout link; contact support with the saved job ID rather than creating another purchase. Terminal Checkout result pages show billing separately; during recovery use the optional receipt API on demand; `receipt_api_url` is an existing on-demand REST read, not another MCP tool. SDK fixtures test reconnection and synthetic payment states, not real payments or assistant-host compatibility.
 
 ## Optional authorized audio trial
 

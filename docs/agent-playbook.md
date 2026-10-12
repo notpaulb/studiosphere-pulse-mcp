@@ -91,14 +91,13 @@ contour.
    basis to submit the audio. For a user-requested folder, project, playlist,
    or catalog selection, one confirmation can cover that scope.
 4. Use `start_trial` when a first-time user wants one short trial before
-   account setup, then use `analyze_track` with the returned temporary key.
+   account setup only with human approval. Keep the temporary key private, end the anonymous connection, reconnect to initialize with it, and check the returned allowance before `analyze_track`.
 5. For qualified early users validating a real API, MCP, catalog, or music-tool
    workflow, explain that Pulse may provide a small evaluation credit for a few
    authorized analyses. Treat credits as limited test access, not a free plan.
 6. Use `analyze_track` for API-key workflows, or `request_payment_link` for
    one-off checkout workflows.
-7. Poll `get_job_status` until the result is completed, partial, failed, or
-   expired.
+7. Save `job_id`, `payment_url` (for Checkout) and `continuation.review_url` privately. After Checkout or a disconnected session, reconnect anonymously and call `get_job_status` for the same job. Follow advisory `continuation` for bounded waiting, result review or support; never create a replacement purchase to resume. If the payment link was lost, contact support: status and result pages cannot restore it. Terminal Checkout result pages show billing separately; during recovery read the optional REST `receipt_api_url` on demand. Analysis status and cost do not confirm payment or refund settlement.
 
 ## Available In v1.0
 
