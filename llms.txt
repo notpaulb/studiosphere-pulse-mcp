@@ -4,7 +4,7 @@
 
 Connect anonymously to `https://mcp.studiosphere.space/mcp`. Call `search_open_loops`, then `get_open_loop` for exact license, license URL, attribution, preview and download. Preserve these rights details; follow each sample's license. Discovery needs no account, key or tokens.
 
-Authentication: a private query API key binds during MCP initialize. After `start_trial`, end the anonymous connection and reconnect with that key before analysis. Later request keys do not upgrade an existing session. MCP OAuth and bearer authentication are unsupported; REST Bearer authentication is separate. Actual Claude, ChatGPT, Cline and Smithery host workflows remain untested; SDK/protocol checks do not establish paid host compatibility. See `/connect`.
+Authentication: a private query API key binds during MCP initialize. After `start_trial`, end the anonymous connection and reconnect with that key before analysis. Later request keys do not upgrade an existing session. MCP OAuth and bearer authentication are unsupported; REST Bearer authentication is separate. One paid workflow through an existing Claude connector was validated on October 12, 2026. Other hosts, authentication setups and actual minimum-charge purchases remain untested; SDK/protocol checks are separate evidence. See `/connect`.
 
 StudioSphere Pulse is an estimate-first audio intelligence API and remote MCP server for music producers and AI agents, with a one-track trial for first-time users and pay-per-use paths for ongoing analysis.
 
@@ -111,7 +111,7 @@ before processing or payment. Never automatically retry analysis or purchase.
 Human token shop: https://pulse.studiosphere.space/tokens
 Read /account/packs (or list_token_packs) for enabled, configured packs and actual amounts.
 Starter (1K) is available only when configured. /tools.checkout_minimum_usd is the
-current one-off admission minimum; below-floor quotes can use an eligible trial
+current one-off admission minimum; below-floor quotes can use an explicitly accepted minimum-charge offer, an eligible trial
 or banked tokens. Review any fresh quote and obtain explicit approval for purchase.
 An uncertain purchase is not safe to retry automatically: preserve its purchase_id
 and use its read-only return status. Redirects do not credit tokens or prove no charge.
@@ -147,3 +147,20 @@ support instead of creating another purchase. receipt_api_url
 is an existing on-demand REST read, not an MCP tool or an automatic provider
 query. Preserve BPM/key uncertainty and review failed tools. SDK fixture tests
 do not establish real payments or Claude/ChatGPT/Smithery host compatibility.
+
+## Explicit short-track Checkout offer
+
+Below the normal admission minimum, `checkout.eligible` remains false. Read
+`analysis_options.checkout.minimum_charge_offer`, when present. Show the estimated
+upfront payment and `minimum_final_cost_usd`; the existing final-cost floor is
+US$0.50, and refund thresholds can leave a higher net payment. Free trial and
+already-funded tokens remain alternatives. Never increase analysis scope to qualify.
+
+Only after explicit human acceptance, call `request_payment_link` with the same
+`job_estimate_id`, `attestation_confirmed:true`, `accept_minimum_charge:true`, and
+`max_upfront_amount_cents` set to the approved upfront ceiling in whole USD cents.
+Rights approval alone is not spending approval. A quote or buffer change above that
+ceiling returns `checkout_amount_exceeds_approval` before a new purchase is created.
+Review again; never raise the ceiling or retry automatically. On interruption,
+retain the original job and payment link privately and poll that job. These are
+local protocol/fixture-tested controls, not evidence of a real minimum-charge purchase.

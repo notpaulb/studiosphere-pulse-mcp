@@ -50,7 +50,7 @@ This follows [Claude Code HTTP setup](https://code.claude.com/docs/en/mcp); it i
 
 **ChatGPT:** where custom MCP connections are available, the public URL with **No authentication** is the candidate discovery setup. ChatGPT cannot present custom Pulse API keys, and Pulse does not implement OAuth. Authenticated ChatGPT use is not supported by the current authentication boundary. See [OpenAI's custom MCP guide](https://developers.openai.com/api/docs/guides/custom-mcp-server) and [auth requirements](https://developers.openai.com/plugins/build/auth).
 
-Actual **Claude, ChatGPT, Cline and Smithery host onboarding has not been tested**. HTTP/SDK tests are protocol evidence, not host certification or directory approval. Paid compatibility is unverified; a public tool scan does not validate it.
+One paid workflow through an existing Claude connector was validated on October 12, 2026, including BPM/waveform results, receipt and automatic refund. Other host/authentication setups and real minimum-charge purchases remain untested. HTTP/SDK fixtures are separate evidence, not host certification or directory approval.
 
 ## Ten tools
 
@@ -129,3 +129,20 @@ Existing listings: [Official Registry](https://registry.modelcontextprotocol.io/
 Support/security questions: **support@studiosphere.space**. Never send your API key.
 
 Operated by StudioSphere Inc., Quebec, Canada. See `LICENSE` for this documentation repository; sample rights are defined by each sample's own license.
+
+## Explicit short-track Checkout offer
+
+Below the normal admission minimum, `checkout.eligible` remains false. Read
+`analysis_options.checkout.minimum_charge_offer`, when present. Show the estimated
+upfront payment and `minimum_final_cost_usd`; the existing final-cost floor is
+US$0.50, and refund thresholds can leave a higher net payment. Free trial and
+already-funded tokens remain alternatives. Never increase analysis scope to qualify.
+
+Only after explicit human acceptance, call `request_payment_link` with the same
+`job_estimate_id`, `attestation_confirmed:true`, `accept_minimum_charge:true`, and
+`max_upfront_amount_cents` set to the approved upfront ceiling in whole USD cents.
+Rights approval alone is not spending approval. A quote or buffer change above that
+ceiling returns `checkout_amount_exceeds_approval` before a new purchase is created.
+Review again; never raise the ceiling or retry automatically. On interruption,
+retain the original job and payment link privately and poll that job. These are
+local protocol/fixture-tested controls, not evidence of a real minimum-charge purchase.

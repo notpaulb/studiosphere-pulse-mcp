@@ -66,4 +66,21 @@ Trial duration fit is not entitlement: approval is required before key issuance,
 
 An eligible estimate can continue through `request_payment_link` without an account or key, after rights confirmation and explicit human approval. Save its `job_id`, `payment_url` and `continuation.review_url` privately, then present the Checkout link for hosted amount review and human payment. After the human returns or a disconnected session, reconnect anonymously and call `get_job_status` for that same job. Follow its advisory `continuation` and pause after the suggested waiting limit. Never create a replacement purchase simply to resume.
 
-Analysis completion is not receipt/refund evidence: `financial_status_verified` remains false. Status and result pages cannot restore a lost Checkout link; contact support with the saved job ID instead of creating another purchase. Review terminal Checkout billing on the saved result page, or during recovery read the existing REST `receipt_api_url` on demand; it is not an MCP tool. Local SDK fixtures cover this handoff with synthetic states; actual payments and paid assistant-host compatibility remain untested.
+Analysis completion is not receipt/refund evidence: `financial_status_verified` remains false. Status and result pages cannot restore a lost Checkout link; contact support with the saved job ID instead of creating another purchase. Review terminal Checkout billing on the saved result page, or during recovery read the existing REST `receipt_api_url` on demand; it is not an MCP tool. Local SDK fixtures cover this handoff with synthetic states; one separate existing Claude connector paid workflow was validated, while minimum-charge purchases and other host setups remain untested.
+
+## Explicit short-track Checkout offer
+
+Below the normal admission minimum, `checkout.eligible` remains false. Read
+`analysis_options.checkout.minimum_charge_offer`, when present. Show the estimated
+upfront payment and `minimum_final_cost_usd`; the existing final-cost floor is
+US$0.50, and refund thresholds can leave a higher net payment. Free trial and
+already-funded tokens remain alternatives. Never increase analysis scope to qualify.
+
+Only after explicit human acceptance, call `request_payment_link` with the same
+`job_estimate_id`, `attestation_confirmed:true`, `accept_minimum_charge:true`, and
+`max_upfront_amount_cents` set to the approved upfront ceiling in whole USD cents.
+Rights approval alone is not spending approval. A quote or buffer change above that
+ceiling returns `checkout_amount_exceeds_approval` before a new purchase is created.
+Review again; never raise the ceiling or retry automatically. On interruption,
+retain the original job and payment link privately and poll that job. These are
+local protocol/fixture-tested controls, not evidence of a real minimum-charge purchase.
