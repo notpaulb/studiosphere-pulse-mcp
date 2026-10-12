@@ -67,6 +67,8 @@ Actual **Claude, ChatGPT, Cline and Smithery host onboarding has not been tested
 | `list_token_packs` | No | Current tiers, including Starter. |
 | `purchase_token_pack` | Yes | Creates Checkout to fund an account; human completes payment. |
 
+For eligible quotes, `analysis_options.checkout.upfront_payment_estimate` previews the current upfront USD payment using Pulse's existing Checkout charge builder. It is not a reserved price or the charge on a saved link; review the hosted amount before paying. Admission follows the gateway's rounded-cent rule.
+
 `structure` and `chords` are coming soon and unavailable. This public repository contains documentation and metadata, not the production implementation.
 
 ## Choose how to continue after a free estimate
