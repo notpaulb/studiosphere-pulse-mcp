@@ -42,6 +42,8 @@ Provenance/license: https://pulse.studiosphere.space/assets/pulse-demo.json
 
 Call `estimate_cost`, review the estimate, confirm rights/permission/lawful access/another legal basis, then `analyze_track` with the quote ID and `attestation_confirmed:true`. Poll `get_job_status`; BPM and musical key are estimates requiring review. Structure and chords are unavailable roadmap items.
 
+For eligible quotes, `analysis_options.checkout.upfront_payment_estimate` previews the current upfront USD payment using Pulse's existing Checkout charge builder. It is not a reserved price or the charge on a saved link; review the hosted amount before paying. Admission follows the gateway's rounded-cent rule.
+
 If interrupted, retain the private key and job ID, reconnect and poll before retrying. Do not mint another key or resubmit an uncertain job. On `estimate_pricing_changed`, get a fresh free estimate and obtain approval again before processing or payment.
 
 ## Ongoing analysis

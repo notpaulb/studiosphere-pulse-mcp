@@ -153,6 +153,8 @@ and use its read-only return status. Redirects do not credit tokens or prove no 
 
 ## Choose the analysis payment path
 
+For eligible quotes, `analysis_options.checkout.upfront_payment_estimate` previews the current upfront USD payment using the existing Checkout charge builder. It is not a reserved price or the charge on a saved link; confirm the hosted amount before paying. Admission follows the gateway's rounded-cent rule.
+
 estimate_cost is anonymous and free. Read its analysis_options before offering a paid continuation.
 - checkout.eligible reflects the current one-off admission minimum. request_payment_link requires human approval and rights confirmation, but no Pulse account or API key. Present payment_url and charged_display when returned for human review/payment. A reused link can omit charge fields; review the hosted amount, not cost_display as a charge. Checkout may capture a buffered amount; minimum charges/refund thresholds can leave net payment above measured analysis cost. Review https://pulse.studiosphere.space/terms#pricing. Never enlarge analysis scope just to reach a charge floor.
 - trial.duration_within_public_policy is advisory, not entitlement. Obtain human approval before start_trial, preserve its private key, reconnect to initialize with that key and read the per-key allowance with get_token_balance. Do not mint another key when recovering an existing trial.
