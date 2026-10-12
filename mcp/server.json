@@ -1,8 +1,8 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "space.studiosphere/pulse",
-  "title": "StudioSphere Pulse — Audio Intelligence",
-  "description": "Rights-aware BPM, key, waveform. Estimate first, trial track, pay per second. No user audio stored.",
+  "title": "StudioSphere Pulse \u2014 Audio Intelligence",
+  "description": "Free licensed loops and authorized audio analysis: BPM, key, waveform. Estimate before paid use.",
   "version": "1.0.2",
   "websiteUrl": "https://pulse.studiosphere.space",
   "homepage": "https://pulse.studiosphere.space",
@@ -14,7 +14,9 @@
     {
       "src": "https://pulse.studiosphere.space/assets/icon.svg",
       "mimeType": "image/svg+xml",
-      "sizes": ["any"],
+      "sizes": [
+        "any"
+      ],
       "theme": "dark"
     }
   ],

@@ -69,6 +69,16 @@ Actual **Claude, ChatGPT, Cline and Smithery host onboarding has not been tested
 
 `structure` and `chords` are coming soon and unavailable. This public repository contains documentation and metadata, not the production implementation.
 
+## Choose how to continue after a free estimate
+
+`estimate_cost` works anonymously and now returns `analysis_options`. Read these before choosing a payment or trial tool:
+
+- **One-off Checkout:** `checkout.eligible` checks the current admission minimum. `request_payment_link` requires explicit human approval and rights confirmation, but no Pulse account or API key. Present the saved link and the upfront `charged_display` when returned. A reused link may omit charge fields: review its hosted amount rather than treating the usage estimate as the charge. Checkout may collect a buffer, and minimum charges/refund thresholds can leave net payment above measured analysis cost. [Review pricing and refunds](https://pulse.studiosphere.space/terms#pricing).
+- **Trial:** `trial.duration_within_public_policy` is advisory, not an entitlement. Get approval before creating a key, reconnect, and check the per-key allowance. Recover an existing trial instead of minting another key.
+- **Banked tokens:** the estimate does not verify a balance. Use an existing trusted key-aware connection, check `get_token_balance`, and run `analyze_track` within an approved rights/spending scope. A trial key cannot buy packs.
+
+No payment or key is created by estimation. Never increase analysis scope to reach a charge floor or automatically retry an uncertain purchase. MCP initialization also supplies this route-selection guidance; protocol/SDK validation remains separate from actual host compatibility.
+
 ## Optional authorized audio trial
 
 Create credentials only with the human's approval. First-time users can call `start_trial` for a private temporary key. **End the anonymous connection and reconnect to initialize with that key** in a trusted key-aware client. Authentication is bound at initialization; adding a key to a later request does not upgrade an existing session.

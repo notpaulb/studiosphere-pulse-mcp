@@ -53,3 +53,9 @@ Private account flow: `get_token_balance` → `estimate_cost` → review cost/ri
 [Privacy](https://pulse.studiosphere.space/privacy) · [Terms](https://pulse.studiosphere.space/terms) · [Docs](https://pulse.studiosphere.space/docs) · [Journey inventory](https://pulse.studiosphere.space/.well-known/pulse/agent-journey.json)
 
 Support: support@studiosphere.space; never send a key.
+
+## Estimate continuation options
+
+Read `estimate_cost.analysis_options`. An eligible anonymous one-off quote can use `request_payment_link` without a Pulse key, after explicit link-creation approval and rights confirmation. The human reviews and completes hosted Checkout. A buffer, measured-cost floor and refund thresholds can keep net payment above measured analysis cost; read https://pulse.studiosphere.space/terms#pricing. Reused links can omit charge fields; never present `cost_display` as the captured amount.
+
+Trial duration fit is not entitlement: approval is required before key issuance, then reconnect and verify the per-key allowance. Banked analysis requires an existing initialized key and separately verified balance. These are advisory choices, not paid-host certification or automatic purchase authority.
