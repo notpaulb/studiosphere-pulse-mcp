@@ -62,7 +62,7 @@ Actual **Claude, ChatGPT, Cline and Smithery host onboarding has not been tested
 | `start_trial` | No | Creates a private temporary key; reconnect before use. |
 | `analyze_track` | Yes | Submit authorized audio for BPM/key estimates and waveform. |
 | `request_payment_link` | No | Creates one-off Checkout after rights confirmation; human completes payment. |
-| `get_job_status` | No | Job status, results and review notes. |
+| `get_job_status` | No | Saved-job continuation, results and review notes. |
 | `get_token_balance` | Yes | Private account/trial balance and allowance. |
 | `list_token_packs` | No | Current tiers, including Starter. |
 | `purchase_token_pack` | Yes | Creates Checkout to fund an account; human completes payment. |
@@ -80,6 +80,14 @@ For eligible quotes, `analysis_options.checkout.upfront_payment_estimate` previe
 - **Banked tokens:** the estimate does not verify a balance. Use an existing trusted key-aware connection, check `get_token_balance`, and run `analyze_track` within an approved rights/spending scope. A trial key cannot buy packs.
 
 No payment or key is created by estimation. Never increase analysis scope to reach a charge floor or automatically retry an uncertain purchase. MCP initialization also supplies this route-selection guidance; protocol/SDK validation remains separate from actual host compatibility.
+
+## Resume one-off Checkout analysis
+
+For eligible authorized audio, stay on the anonymous connection: estimate → review costs and rights → approve link creation → `request_payment_link` → human payment → `get_job_status`. No Pulse account, key or pack is required.
+
+Save the returned `job_id`, `payment_url` and `continuation.review_url` privately before presenting `payment_url`. After payment or an interrupted connection, reconnect anonymously and call `get_job_status` for the same job. Follow `continuation`: human Checkout pauses for the user, waiting supplies a suggested interval and attempt limit, results need review, and recovery requires checking the saved job or contacting support. Pause after the waiting limit; do not create another analysis or purchase to resume it.
+
+`continuation.financial_status_verified` is false. A link, redirect, completed analysis or analysis cost does not prove payment or refund settlement. Status and result pages cannot restore a lost Checkout link; contact support with the saved job ID rather than creating another purchase. Terminal Checkout result pages show billing separately; during recovery use the optional receipt API on demand; `receipt_api_url` is an existing on-demand REST read, not another MCP tool. SDK fixtures test reconnection and synthetic payment states, not real payments or assistant-host compatibility.
 
 ## Optional authorized audio trial
 
@@ -116,7 +124,7 @@ Audio is processed for analysis and not stored as user audio; temporary processi
 
 [Terms](https://pulse.studiosphere.space/terms) · [API docs](https://pulse.studiosphere.space/docs) · [Machine-readable journey](https://pulse.studiosphere.space/.well-known/pulse/agent-journey.json) · [MCP health](https://mcp.studiosphere.space/health)
 
-Existing listings: [Official Registry](https://registry.modelcontextprotocol.io/v0.1/servers?search=space.studiosphere%2Fpulse) (`space.studiosphere/pulse`,1.0.2), [Smithery](https://smithery.ai/servers/studiosphere/pulse), [Glama connector](https://glama.ai/mcp/connectors/space.studiosphere/pulse). A listing is not a compatibility endorsement.
+Existing listings: [Official Registry](https://registry.modelcontextprotocol.io/v0.1/servers?search=space.studiosphere%2Fpulse) (`space.studiosphere/pulse`,1.0.3), [Smithery](https://smithery.ai/servers/studiosphere/pulse), [Glama connector](https://glama.ai/mcp/connectors/space.studiosphere/pulse). A listing is not a compatibility endorsement.
 
 Support/security questions: **support@studiosphere.space**. Never send your API key.
 

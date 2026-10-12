@@ -160,3 +160,25 @@ estimate_cost is anonymous and free. Read its analysis_options before offering a
 - trial.duration_within_public_policy is advisory, not entitlement. Obtain human approval before start_trial, preserve its private key, reconnect to initialize with that key and read the per-key allowance with get_token_balance. Do not mint another key when recovering an existing trial.
 - The estimate does not verify a balance (banked_tokens.balance_verified is false); check the existing account balance separately. Use a trusted key-aware connection, get_token_balance and analyze_track within an approved spend/rights scope. Use list_token_packs for current packs; purchase_token_pack needs an account key and human approval.
 These choices do not certify Claude, ChatGPT or Smithery host compatibility. Keep saved job/purchase state after interruptions; do not retry uncertain paid actions automatically.
+
+## Resume one-off analysis from an agent
+
+No Pulse account or API key is required for eligible human-completed one-off
+Checkout. With rights confirmation and human approval, request_payment_link
+returns job_id and advisory continuation. Save job_id, payment_url and
+continuation.review_url privately before presenting payment_url; the human reviews the hosted amount.
+After the human returns or an interrupted connection, reconnect anonymously and
+call get_job_status for that same job. Follow continuation: complete_checkout
+pauses for the human; wait suggests bounded polling; review_results preserves
+partial/complete output and provenance; contact_support or check_saved_job stops
+automatic resubmission. Pause after max_poll_attempts in the waiting period.
+Never create another analysis or purchase merely to resume a saved job.
+
+continuation.financial_status_verified is false: a link, redirect, terminal
+analysis status or analysis cost is not payment/refund settlement evidence. Terminal
+Checkout result pages show billing separately; during recovery use receipt_api_url
+on demand. Status and result pages cannot restore a lost payment_url; contact
+support instead of creating another purchase. receipt_api_url
+is an existing on-demand REST read, not an MCP tool or an automatic provider
+query. Preserve BPM/key uncertainty and review failed tools. SDK fixture tests
+do not establish real payments or Claude/ChatGPT/Smithery host compatibility.
