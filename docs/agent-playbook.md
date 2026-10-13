@@ -82,6 +82,14 @@ For producers and songwriters, Pulse can analyze references so sessions start
 with concrete constraints: approximate tempo, key center, and visual waveform
 contour.
 
+## Studio notes for your creative workflow
+
+Before spending approval, read `estimate_cost.analysis_options.result_delivery`. It describes the selected analysis deliverable: Studio notes for a DAW session, sample-library tags or project notes. This is advisory, not an analyzed result or a reason to add tools the user does not need.
+
+After analysis, `get_job_status` may include `studio_notes` only when the job is `completed` or `partial` with usable observed results. Paste the notes into your DAW session or project notes. Preserve warnings, provenance, suppressed values and failed tools; do not fill in missing values or infer structure/chords. BPM and key are estimates requiring review, including half-time/double-time tempo checks and ambiguous key centers. Keep the job ID private when sharing.
+
+`studio_notes` is not payment confirmation. Read receipts/refund evidence separately and on demand. The notes add no MCP tool or input, do not include audio or the source URL, and grant no spending or rights approval. Local fixture evidence does not establish a new paid-host test or conversion uplift.
+
 ## Agent Workflow
 
 On the [Pulse homepage](https://pulse.studiosphere.space/), **Copy task for Claude** appears after a current anonymous free estimate. It copies the source, selected tools and advisory quote, including the estimated upfront payment and any minimum final-cost floor. It makes no API call and grants no payment consent. The action is unavailable with a key, after submission or uncertainty, or when the quote expires or its source changes. Review the private quote and URL before sharing them with your existing Pulse connector; confirm rights and explicitly approve spending before human-completed Checkout. After interruption, preserve and poll the original saved job rather than buying again. This new handoff has local browser clipboard and helper-fixture evidence only; the two previously validated existing-connector Checkout workflows do not constitute an actual host test of it. No new MCP tool is added.
