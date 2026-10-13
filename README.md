@@ -27,6 +27,9 @@ acceptance or universal host compatibility.
 
 ## Start without an account
 
+[Open the existing StudioSphere Pulse Community listing in Claude](https://claude.ai/directory/studiosphere-pulse). Publisher: StudioSphere Inc. Community is automated review, not Anthropic verification. Reuse an existing connection. After free discovery, use the estimate-task builder on [the connection guide](https://pulse.studiosphere.space/connect#one-off-analysis): choose an authorized public HTTPS audio URL and BPM, musical key or waveform, then review and copy a free-estimate task. It stops before analysis, payment or credential creation and retains original-job recovery. Choices stay on the page until you copy them; keep private keys and signed URLs out. Only the canonical Copper Step demo receives its actual CC0 attribution; other audio is not assigned a licence. Costs, BPM and key are estimates requiring review. Review conditional Studio notes and upfront/minimum Checkout charges before explicitly approving spending.
+
+
 Try the anonymous browser demonstration on [the connection guide](https://pulse.studiosphere.space/connect): search one CC0 loop, retrieve its licence and source credit, then preview or download it. No key, account, analysis job or payment is created. This is a browser demonstration, not assistant-host certification.
 
 Connect anonymously using **Streamable HTTP**:
