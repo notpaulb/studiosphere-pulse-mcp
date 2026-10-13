@@ -83,7 +83,7 @@ Two scoped workflows through one existing configured Claude connector were valid
 | `start_trial` | No | Creates a private temporary key; reconnect before use. |
 | `analyze_track` | Yes | Submit authorized audio for BPM/key estimates and waveform. |
 | `request_payment_link` | No | Creates one-off Checkout after rights confirmation; human completes payment. |
-| `get_job_status` | No | Saved-job continuation, results and review notes. |
+| `get_job_status` | No | Saved-job continuation, results and optional Studio notes for usable completed/partial jobs. |
 | `get_token_balance` | Yes | Private account/trial balance and allowance. |
 | `list_token_packs` | No | Current tiers, including Starter. |
 | `purchase_token_pack` | Yes | Creates Checkout to fund an account; human completes payment. |
@@ -91,6 +91,14 @@ Two scoped workflows through one existing configured Claude connector were valid
 For eligible quotes, `analysis_options.checkout.upfront_payment_estimate` previews the current upfront USD payment using Pulse's existing Checkout charge builder. It is not a reserved price or the charge on a saved link; review the hosted amount before paying. Admission follows the gateway's rounded-cent rule.
 
 `structure` and `chords` are coming soon and unavailable. This public repository contains documentation, metadata and the portable plugin package, not the production implementation.
+
+## Studio notes for your creative workflow
+
+Before spending approval, read `estimate_cost.analysis_options.result_delivery`. It describes the selected analysis deliverable: Studio notes for a DAW session, sample-library tags or project notes. This is advisory, not an analyzed result or a reason to add tools the user does not need.
+
+After analysis, `get_job_status` may include `studio_notes` only when the job is `completed` or `partial` with usable observed results. Paste the notes into your DAW session or project notes. Preserve warnings, provenance, suppressed values and failed tools; do not fill in missing values or infer structure/chords. BPM and key are estimates requiring review, including half-time/double-time tempo checks and ambiguous key centers. Keep the job ID private when sharing.
+
+`studio_notes` is not payment confirmation. Read receipts/refund evidence separately and on demand. The notes add no MCP tool or input, do not include audio or the source URL, and grant no spending or rights approval. Local fixture evidence does not establish a new paid-host test or conversion uplift.
 
 ## Choose how to continue after a free estimate
 
