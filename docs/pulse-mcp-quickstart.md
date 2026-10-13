@@ -12,7 +12,11 @@ https://mcp.studiosphere.space/mcp
 
 Connect without authentication. Call `search_open_loops`, then `get_open_loop` for a returned `pol_id`. Show preview/download and preserve license, license URL and attribution; follow each sample's terms. No key, account, tokens or payment is needed.
 
-Claude remote setup uses Customize → Connectors → Add custom connector, the public endpoint and No sign in; organization permissions and labels can vary. Do not use Desktop's local configuration editor for this remote connection.
+Claude: open the existing [StudioSphere Pulse Community listing](https://claude.ai/directory/studiosphere-pulse), published by StudioSphere Inc. Reuse Pulse if already connected; do not add a second connector. Community means automated review, not Anthropic verification. Workspace availability can vary. Manual remote setup uses Customize → Connectors → Add custom connector, the public endpoint and No sign in. Do not use Desktop's local configuration editor for this remote connection.
+
+After free discovery, use the analysis-task builder on `/connect#one-off-analysis`: choose an accessible public HTTPS audio URL and only the tools your project needs. BPM and key are initially selected; waveform is optional. Review and copy the estimate-only task to your existing connected assistant. The initial Copper Step demo retains its CC0 licence and source credit; changing to your own URL does not assign it the demo's licence. Choices remain on the page without a network request or storage. URLs with recognized credential or signed-query parameters are rejected; this cannot identify every private link. Keep all private keys and signed links out, and use the browser analysis flow for local files. Copy failure opens selectable text for manual copying.
+
+The task requests one free estimate, separates estimated analysis cost from upfront/minimum Checkout costs, and describes conditional Studio notes without inventing analyzed results. It stops before payment, analysis or credential creation. Preserve lawful-basis confirmation and explicit spending approval before later processing. Resume an existing saved job rather than starting another purchase. The existing homepage quote handoff remains the path for a quote you already obtained.
 
 Claude Code candidate command (quoted for zsh):
 
