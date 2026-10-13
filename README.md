@@ -4,6 +4,27 @@ Discover free, licensed loops and analyze authorized audio for BPM, musical key 
 
 [Pulse](https://pulse.studiosphere.space) · [Connection guide](https://pulse.studiosphere.space/connect) · [Open Loops](https://pulse.studiosphere.space/open-loops) · [Quickstart](docs/pulse-mcp-quickstart.md)
 
+## Portable plugin package
+
+This repository is the public documentation, MCP metadata and plugin package for
+StudioSphere Pulse, operated by **StudioSphere Inc.** It does not include the
+private production implementation.
+
+The root `plugin.json` and `mcp.json` use the portable Agent Plugins format,
+supported by OpenAI and Cursor. Plugin version **0.1.0** points to the anonymous
+Streamable HTTP endpoint above, with no bundled credentials, local executable,
+dependencies or lifecycle hooks. The existing Pulse icon is in `assets/icon.png`.
+See [plugin installation and validation](docs/plugin-package.md).
+
+Cursor local import connected all ten tools on October 12, 2026. A scoped host
+conversation validated loop search, licence/attribution retrieval, a free demo
+estimate, pack information and the anonymous missing-key response. Negative
+scenarios left paid analysis, trial issuance and Checkout creation unperformed;
+this does not establish server enforcement or paid-host compatibility.
+OpenAI personal ZIP import succeeded; runtime validation and public business
+publisher verification remain pending. This package is not a claim of marketplace
+acceptance or universal host compatibility.
+
 ## Start without an account
 
 Try the anonymous browser demonstration on [the connection guide](https://pulse.studiosphere.space/connect): search one CC0 loop, retrieve its licence and source credit, then preview or download it. No key, account, analysis job or payment is created. This is a browser demonstration, not assistant-host certification.
@@ -69,7 +90,7 @@ Two scoped workflows through one existing configured Claude connector were valid
 
 For eligible quotes, `analysis_options.checkout.upfront_payment_estimate` previews the current upfront USD payment using Pulse's existing Checkout charge builder. It is not a reserved price or the charge on a saved link; review the hosted amount before paying. Admission follows the gateway's rounded-cent rule.
 
-`structure` and `chords` are coming soon and unavailable. This public repository contains documentation and metadata, not the production implementation.
+`structure` and `chords` are coming soon and unavailable. This public repository contains documentation, metadata and the portable plugin package, not the production implementation.
 
 ## Choose how to continue after a free estimate
 

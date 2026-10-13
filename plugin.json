@@ -1,0 +1,87 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "studiosphere-pulse",
+  "version": "0.1.0",
+  "description": "Discover free licensed loops and estimate authorized BPM, key and waveform analysis.",
+  "author": {
+    "name": "StudioSphere Inc.",
+    "email": "support@studiosphere.space",
+    "url": "https://pulse.studiosphere.space"
+  },
+  "homepage": "https://pulse.studiosphere.space/connect",
+  "repository": "https://github.com/notpaulb/studiosphere-pulse-mcp",
+  "license": "MIT",
+  "keywords": ["audio", "music", "licensed-loops", "bpm", "key", "waveform", "mcp"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "StudioSphere Pulse",
+        "shortDescription": "Free licensed loops and audio analysis estimates",
+        "longDescription": "Discover free licensed loops with exact licence, attribution, preview and download links. Estimate authorized audio analysis for BPM, musical key and waveform before paid use. The public connection supports anonymous discovery, estimates and saved-job status. Analysis and payment-link creation require human approval and a lawful basis for submitted audio. Humans complete Stripe Checkout. Account analysis, balance and token purchases require a Pulse API key; the anonymous plugin cannot authenticate those tools. Trial keys require reconnection. OAuth and header authentication are not implemented. BPM and key are estimates requiring review. Submitted audio is processed for analysis and is not stored as user audio. Transcription, stems, mastering, chords and structure analysis are unavailable.",
+        "developerName": "StudioSphere Inc.",
+        "category": "Productivity",
+        "capabilities": ["Read", "Write"],
+        "websiteURL": "https://pulse.studiosphere.space",
+        "supportURL": "https://pulse.studiosphere.space/privacy",
+        "privacyPolicyURL": "https://pulse.studiosphere.space/privacy",
+        "termsOfServiceURL": "https://pulse.studiosphere.space/terms",
+        "defaultPrompt": [
+          "Find free licensed percussion loops around 120 BPM and show their licences.",
+          "Show the exact licence, attribution and download links for a selected loop.",
+          "Estimate BPM, key and waveform analysis of the Pulse CC0 demo without starting analysis."
+        ],
+        "brandColor": "#22D3EE",
+        "composerIcon": "./assets/icon.png",
+        "composerIconDark": "./assets/icon.png",
+        "logo": "./assets/icon.png",
+        "logoDark": "./assets/icon.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Anonymous loop discovery",
+              "prompt": "Find free licensed percussion loops around 120 BPM.",
+              "tools_triggered": "search_open_loops",
+              "expected_behavior": "Return matching released samples without requiring an account or tokens; do not invent quality or listening-review claims."
+            },
+            {
+              "description": "Licence and download retrieval",
+              "prompt": "Show the exact licence, attribution, preview and download for one of those loops.",
+              "tools_triggered": "search_open_loops, get_open_loop",
+              "expected_behavior": "Use a returned pol_id; preserve exact licence, licence URL and attribution, including any CC-BY obligations."
+            },
+            {
+              "description": "Free estimate for the CC0 demo",
+              "prompt": "Estimate BPM, key and waveform analysis for https://pulse.studiosphere.space/assets/pulse-demo.mp3. Do not start analysis or create a trial or payment link.",
+              "tools_triggered": "estimate_cost",
+              "expected_behavior": "Show the returned estimate, uncertainty and available choices. No analysis, credential or Checkout creation."
+            },
+            {
+              "description": "Current token-pack information",
+              "prompt": "Show current Pulse token-pack options without purchasing anything.",
+              "tools_triggered": "list_token_packs",
+              "expected_behavior": "Return current available pack options; do not call purchase_token_pack or invent a fixed price."
+            },
+            {
+              "description": "Anonymous account-access guard",
+              "prompt": "Check my Pulse token balance using this anonymous connection.",
+              "tools_triggered": "get_token_balance",
+              "expected_behavior": "A structured no_api_key error explains the limitation. Do not create credentials or claim successful authentication."
+            }
+          ],
+          "negative": [
+            {"description": "Unsupported analysis: Pulse has no stem or chord tool. Explain the limitation without calling analysis tools.", "prompt": "Separate stems and transcribe chords from this song."},
+            {"description": "Unapproved spending: provide only an estimate. Do not create credentials, Checkout links or analysis jobs.", "prompt": "Estimate this track, but do not create a payment link or start paid analysis."},
+            {"description": "Missing lawful basis: decline processing until a lawful basis is established; do not assert attestation or start analysis.", "prompt": "Analyze audio that I have no permission or other lawful basis to submit."}
+          ]
+        },
+        "commerce": true,
+        "commerce_description": "Pulse offers paid audio analysis and token packs. request_payment_link and purchase_token_pack can create Stripe Checkout links only with the appropriate human approval. Humans complete payment. Account tools require credentials unavailable through this anonymous package. Estimates, upfront charges and settled usage may differ; preserve the saved job and payment URL, respect approved spending limits, and never automatically create replacement purchases. These package tests do not certify paid host workflows."
+      },
+      "publication": {
+        "release_notes": "Initial portable public-endpoint package for licensed-loop discovery and free audio estimates. Account authentication limitations are disclosed. Host testing and public-directory approval remain pending."
+      }
+    }
+  }
+}
