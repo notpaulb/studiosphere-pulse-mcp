@@ -4,6 +4,10 @@ Discover free, licensed loops and analyze authorized audio for BPM, musical key 
 
 [Pulse](https://pulse.studiosphere.space) · [Connection guide](https://pulse.studiosphere.space/connect) · [Open Loops](https://pulse.studiosphere.space/open-loops) · [Quickstart](docs/pulse-mcp-quickstart.md)
 
+## Local creative example
+
+Try [licensed loop → reviewed tempo grid → motion cuts](examples/loop-to-motion/README.md): a CC0 loop, local custom player, human review controls, portable cut list and optional local MP4. Timing starts provisional; no analysis, purchase or credentials are created. This is an example, not automatic beat detection, DAW control or a video-provider integration.
+
 ## Portable plugin package
 
 This repository is the public documentation, MCP metadata and plugin package for

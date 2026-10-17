@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Licensed loop → motion cuts · StudioSphere Pulse</title>
+<meta name="description" content="A local CC0 loop and estimated tempo-grid motion study. Review tempo and offset, then export an editor-neutral cut list.">
+<link rel="stylesheet" href="style.css"><script type="module" src="app.mjs"></script>
+</head>
+<body>
+<header><img src="../../assets/icon.png" width="42" height="42" alt=""><a href="https://pulse.studiosphere.space">pulse</a><span>StudioSphere · local creative example</span></header>
+<main>
+<p class="eyebrow">OPEN LOOPS / MOTION STUDY 01</p>
+<h1>Give a loop a timeline.</h1>
+<p class="intro">One licensed sound. A grid you review. A little room to move.</p>
+<div class="workspace">
+<section aria-label="Local motion preview">
+<div class="stage"><canvas id="scene" width="640" height="360" role="img" aria-label="Original abstract motion preview; scene changes follow the estimated tempo grid"></canvas><span id="badge" class="badge">Provisional timing · listening review pending</span><span class="stage-footer">COPPER STEP / <span id="sceneLabel">SCENE 01</span></span></div>
+<div class="transport"><button id="play" disabled aria-label="Play loop and motion preview">Play</button><button id="stop" disabled>Stop</button><label class="seek-label">Position<input id="seek" type="range" min="0" max="8" step="0.01" value="0" disabled></label><output id="clock" aria-live="off">0:00 / 0:08</output></div>
+<audio id="audio" preload="none"></audio>
+<p id="status" role="status">Verifying the local CC0 audio…</p>
+<div class="timeline" id="timeline" aria-label="Estimated scene cut times"></div>
+<p class="fine">Motion is original procedural graphics. These cuts are scheduled from a fixed-tempo estimate and a starting offset—not detected beat timestamps. No music generation or DAW control.</p>
+</section>
+<aside>
+<fieldset id="settings" disabled><legend>Make the grid yours</legend>
+<div class="fields"><label>Working tempo <span>BPM</span><input id="bpm" type="number" min="40" max="240" step="0.01" value="120"></label><label>First beat offset <span>seconds</span><input id="offset" type="number" min="0" max="0.499" step="0.001" value="0"></label><label>Timeline rate <select id="fps"><option value="24">24 fps</option><option selected value="30">30 fps</option><option value="60">60 fps</option></select></label></div>
+<p class="fine">120 BPM comes from the loop’s original synthesis metadata. Offset 0 is a starting suggestion. No Pulse analysis was run. Cuts fall every four working beats; the first scene includes any lead-in.</p>
+<label>Your name or project<input id="reviewer" maxlength="80" placeholder="For your review record" autocomplete="off"></label>
+<label>What did you check?<textarea id="note" maxlength="500" rows="2" placeholder="Listen to the bar starts; note tempo or offset corrections."></textarea></label>
+<label class="confirmation"><input id="review" type="checkbox" disabled><span>I listened and reviewed the working tempo and first-beat offset.</span></label>
+<p class="fine" id="reviewHelp">Play the loop and add a review note to enable this confirmation. Changing timing clears it. Human attestation is not Pulse verification.</p>
+<button id="json" disabled>Download provisional cut list</button><button id="csv" class="secondary" disabled>Download timing CSV</button>
+</fieldset>
+</aside>
+</div>
+<section class="source" aria-labelledby="sourceTitle"><div><p class="eyebrow">KEEP THE SOURCE WITH THE WORK</p><h2 id="sourceTitle">Copper Step 120 drums</h2><p>StudioSphere Pulse · <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0-1.0</a> · original synthesis · 8 seconds</p></div><div><a href="https://pulse.studiosphere.space/open-loops/pol-original-copper-step-120-drums">Source &amp; licence</a><a href="assets/copper-step-120-drums.wav" download>Download WAV</a></div></section>
+<p class="fine">Everything in this preview runs locally. It creates no account, key, estimate, analysis or purchase. CC0 provenance does not guarantee immunity from third-party claims. <a href="https://pulse.studiosphere.space/privacy">Privacy</a> · <a href="https://pulse.studiosphere.space/connect">Connect to Pulse</a></p>
+<noscript>This example needs JavaScript. The CC0 source and WAV download remain available above.</noscript>
+</main>
+</body></html>
