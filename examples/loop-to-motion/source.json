@@ -1,0 +1,17 @@
+{
+  "pol_id": "pol-original-copper-step-120-drums",
+  "title": "Copper Step 120 drums",
+  "review_basis": "original_synthesis",
+  "page_url": "https://pulse.studiosphere.space/open-loops/pol-original-copper-step-120-drums",
+  "download_url": "https://pulse.studiosphere.space/open-loops/pol-original-copper-step-120-drums/download",
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "attribution": "StudioSphere Pulse",
+  "audio_file": "assets/copper-step-120-drums.wav",
+  "sha256": "31442703b00f36272aa076e34b2c24dd02fef5099ad75be07594c6fd0cc75085",
+  "duration_seconds": 8,
+  "sample_rate_hz": 44100,
+  "sample_frames": 352800,
+  "creator_tempo_bpm": 120,
+  "pulse_analysis": null
+}

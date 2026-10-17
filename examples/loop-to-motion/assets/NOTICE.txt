@@ -1,0 +1,9 @@
+Audio: Copper Step 120 drums
+Source: StudioSphere Pulse
+Original synthesis; not claimed to be listening-reviewed.
+Licence: CC0-1.0
+Licence URL: https://creativecommons.org/publicdomain/zero/1.0/
+Source page: https://pulse.studiosphere.space/open-loops/pol-original-copper-step-120-drums
+WAV SHA-256: 31442703b00f36272aa076e34b2c24dd02fef5099ad75be07594c6fd0cc75085
+
+The repository MIT licence applies to example code and original graphics, not a replacement licence for audio. Keep provenance when sharing. CC0 cannot guarantee immunity from third-party claims or takedowns. No endorsement by an editor or video-generation provider is implied.
