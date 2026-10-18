@@ -8,6 +8,8 @@ Discover free, licensed loops and analyze authorized audio for BPM, musical key 
 
 Try [licensed loop → reviewed tempo grid → motion cuts](examples/loop-to-motion/README.md): a CC0 loop, local custom player, human review controls, portable cut list and optional local MP4. Timing starts provisional; no analysis, purchase or credentials are created. This is an example, not automatic beat detection, DAW control or a video-provider integration.
 
+Building a game with an agent? Use the [game-audio starter](https://pulse.studiosphere.space/game-audio-for-agents) for licensed CC0 music, source records, Unity import steps and an optional free estimate for your own authorized audio. The starter does not provide a one-shot SFX library or certify Unity/Blender MCP integration. Existing kit metadata needs no paid analysis.
+
 ## Portable plugin package
 
 This repository is the public documentation, MCP metadata and plugin package for

@@ -18,6 +18,10 @@ Canonical page: <https://pulse.studiosphere.space/for-agents>
 
 ## Recommended Scenarios
 
+### Add Sound To An Agent-Built Game
+
+Follow the [game-audio starter](https://pulse.studiosphere.space/game-audio-for-agents) for existing CC0 music, source/licence records and Unity import instructions. The current starter supplies music loops, not one-shot SFX; engine/MCP compatibility is not certified. Use a free estimate only when your own authorized music needs metadata. Existing kit metadata needs no paid analysis.
+
 ### DJ Beat Matching
 
 When a DJ or assistant is preparing a set, Pulse can identify BPM and musical
