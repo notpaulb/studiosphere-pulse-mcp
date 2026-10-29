@@ -166,7 +166,7 @@ Audio is processed for analysis and not stored as user audio; temporary processi
 
 [Terms](https://pulse.studiosphere.space/terms) · [API docs](https://pulse.studiosphere.space/docs) · [Machine-readable journey](https://pulse.studiosphere.space/.well-known/pulse/agent-journey.json) · [MCP health](https://mcp.studiosphere.space/health)
 
-Existing listings: [Official Registry](https://registry.modelcontextprotocol.io/v0.1/servers?search=space.studiosphere%2Fpulse) (`space.studiosphere/pulse`,1.0.3), [Smithery](https://smithery.ai/servers/studiosphere/pulse), [Glama connector](https://glama.ai/mcp/connectors/space.studiosphere/pulse). A listing is not a compatibility endorsement.
+Existing listings: [Official Registry](https://registry.modelcontextprotocol.io/v0/servers?search=space.studiosphere%2Fpulse) (`space.studiosphere/pulse`,1.0.4), [Smithery](https://smithery.ai/servers/studiosphere/pulse), [Glama connector](https://glama.ai/mcp/connectors/space.studiosphere/pulse). A listing is not a compatibility endorsement.
 
 Support/security questions: **support@studiosphere.space**. Never send your API key.
 

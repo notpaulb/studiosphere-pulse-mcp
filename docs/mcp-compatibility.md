@@ -2,7 +2,7 @@
 
 Reviewed October 29, 2026. Compatibility belongs to a specific host, authentication method and workflow. A listing, package import or SDK test does not establish every workflow in that host. This document is the current evidence index; dated reports retain their original scope.
 
-Production runtime and descriptor **1.0.4** were verified October 29 after the controlled deployment. Official Registry latest remains **1.0.3**, independently rechecked after deployment; this release did not publish a Registry version. The earlier trial observations retain their original scope.
+Production runtime and descriptor **1.0.4** were verified October 29 after the controlled deployment. Official Registry **1.0.4** was subsequently published October 29 at 15:34:47 EDT and independently verified active/latest through the [Registry API](https://registry.modelcontextprotocol.io/v0/servers?search=space.studiosphere%2Fpulse). The earlier trial observations retain their original scope.
 
 ## Connection contract
 
@@ -10,7 +10,7 @@ Production runtime and descriptor **1.0.4** were verified October 29 after the c
 |---|---|
 | Product and human setup | https://pulse.studiosphere.space/connect |
 | Protocol endpoint | `https://mcp.studiosphere.space/mcp` |
-| Transport and identity | Streamable HTTP; `space.studiosphere/pulse`; MCP runtime `1.0.4` verified October 29; official Registry `1.0.3` |
+| Transport and identity | Streamable HTTP; `space.studiosphere/pulse`; MCP runtime `1.0.4` verified October 29; official Registry `1.0.4` |
 | Anonymous operations | Licensed-loop search/retrieval, free estimates, saved-job status and token-pack information |
 | Trial and banked analysis | Private query key bound during `initialize`; reconnect after obtaining a key |
 | OAuth and MCP Bearer | Unsupported; REST Bearer authentication is a separate interface |
