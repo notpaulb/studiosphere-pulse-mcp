@@ -2,6 +2,8 @@
 
 Reviewed October 29, 2026. Compatibility belongs to a specific host, authentication method and workflow. A listing, package import or SDK test does not establish every workflow in that host. This document is the current evidence index; dated reports retain their original scope.
 
+Release preparation: runtime/package/descriptor candidate **1.0.4** contains the UX changes. The latest verified production runtime and official Registry observation below remain **1.0.3** until deployment/publication is separately verified. A public-repository push does not itself publish to the Registry.
+
 ## Connection contract
 
 | Property | Current contract |
