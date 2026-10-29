@@ -46,7 +46,7 @@ Pulse is a hosted API and remote MCP server. It accepts public HTTPS audio URLs,
 - Icon: `https://pulse.studiosphere.space/assets/icon.svg`
 - Social card: `https://pulse.studiosphere.space/assets/og.png`
 - Public repository: `https://github.com/notpaulb/studiosphere-pulse-mcp`
-- Official MCP Registry name/version: `space.studiosphere/pulse` v1.0.3
+- Official MCP Registry name/version: `space.studiosphere/pulse` v1.0.4
 
 ## Available v1.0 Analysis Tools
 

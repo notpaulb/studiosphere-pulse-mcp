@@ -29,7 +29,7 @@ StudioSphere Pulse is an estimate-first audio intelligence API and remote MCP se
 - MCP manifest: https://pulse.studiosphere.space/.well-known/mcp/server.json
 - Public repository: https://github.com/notpaulb/studiosphere-pulse-mcp
 - Official MCP Registry name: `space.studiosphere/pulse`
-- Official MCP Registry version: `1.0.3`
+- Official MCP Registry version: `1.0.4`
 - Icon: https://pulse.studiosphere.space/assets/icon.svg
 - Social card: https://pulse.studiosphere.space/assets/og.png
 
