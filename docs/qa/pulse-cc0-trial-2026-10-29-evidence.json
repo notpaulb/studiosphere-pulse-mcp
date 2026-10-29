@@ -1,0 +1,362 @@
+{
+  "scope": "One explicitly approved CC0 demo trial; SDK transport, not assistant-host certification",
+  "events": [
+    {
+      "step": "rights_verified",
+      "at": "2026-10-29T13:43:23.656Z",
+      "audio": "https://pulse.studiosphere.space/assets/pulse-demo.mp3",
+      "provenance": {
+        "title": "Copper Step — Pulse demo",
+        "duration_seconds": 180,
+        "bpm": 120,
+        "compositional_key": "A minor",
+        "creator": "StudioSphere Pulse",
+        "license": "CC0-1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "source": "original_synthesis",
+        "audio_url": "https://pulse.studiosphere.space/assets/pulse-demo.mp3",
+        "renderer_version": "pulse-copper-step-arrangement-1",
+        "review_note": "Original oscillator and deterministic noise synthesis; no external source audio. Compositional tempo and key are arrangement references, not detector results. Automated PCM peak/RMS/DC/clipping/fade and encoded-media checks; not individually auditioned."
+      },
+      "provenance_url": "https://pulse.studiosphere.space/assets/pulse-demo.json"
+    },
+    {
+      "step": "public_policy_read",
+      "at": "2026-10-29T13:43:23.704Z",
+      "trial_policy": {
+        "enabled": true,
+        "tokens": 78,
+        "max_duration_sec": 300,
+        "max_queued_attempts": 2,
+        "expires_in_hours": 24
+      }
+    },
+    {
+      "step": "anonymous_initialized",
+      "at": "2026-10-29T13:43:23.820Z",
+      "server": {
+        "name": "studiosphere-pulse",
+        "version": "1.0.3"
+      }
+    },
+    {
+      "step": "estimate_reviewed",
+      "at": "2026-10-29T13:43:24.228Z",
+      "duration": 180,
+      "tokens": 47,
+      "cost_display": "$0.24",
+      "trial_duration_fit": true
+    },
+    {
+      "step": "trial_issued",
+      "at": "2026-10-29T13:43:24.502Z",
+      "account_type": "trial",
+      "banked_tokens": 78,
+      "expires_at": "2026-10-30T13:43:24.260Z",
+      "trial_policy": {
+        "enabled": true,
+        "tokens": 78,
+        "max_duration_sec": 300,
+        "max_queued_attempts": 2,
+        "expires_in_hours": 24
+      },
+      "trial_allowance": {
+        "state": "available",
+        "analyses_remaining": 1,
+        "attempts_remaining": 2,
+        "max_duration_sec": 300
+      }
+    },
+    {
+      "step": "anonymous_session_remains_anonymous",
+      "at": "2026-10-29T13:43:24.525Z"
+    },
+    {
+      "step": "keyed_reconnect_initialized",
+      "at": "2026-10-29T13:43:24.593Z",
+      "new_session": true,
+      "server": {
+        "name": "studiosphere-pulse",
+        "version": "1.0.3"
+      }
+    },
+    {
+      "step": "allowance_verified",
+      "at": "2026-10-29T13:43:25.015Z",
+      "banked_tokens": 78,
+      "trial_allowance": {
+        "state": "available",
+        "analyses_remaining": 1,
+        "attempts_remaining": 2,
+        "max_duration_sec": 300
+      }
+    },
+    {
+      "step": "analysis_submitted",
+      "at": "2026-10-29T13:43:25.601Z",
+      "job_reference_saved_privately": true,
+      "status": "pending"
+    },
+    {
+      "step": "reconnected_after_submission",
+      "at": "2026-10-29T13:43:25.703Z",
+      "same_job": true,
+      "new_session": true
+    },
+    {
+      "step": "status_poll",
+      "at": "2026-10-29T13:43:25.886Z",
+      "attempt": 1,
+      "status": "pending",
+      "continuation_action": "wait"
+    },
+    {
+      "step": "status_poll",
+      "at": "2026-10-29T13:43:31.081Z",
+      "attempt": 2,
+      "status": "completed",
+      "continuation_action": "review_results"
+    },
+    {
+      "step": "terminal_result",
+      "at": "2026-10-29T13:43:31.082Z",
+      "status": "completed",
+      "audio_duration_sec": 180,
+      "cost_usd": 0.047,
+      "results": {
+        "bpm": {
+          "value": 120.19,
+          "confidence": 1,
+          "beat_count": 355,
+          "tempo_candidates": [
+            {
+              "value": 120.19,
+              "confidence": 1
+            }
+          ],
+          "raw_detected_value": 120.19,
+          "alternatives": [],
+          "warnings": [
+            "bpm_unknown_asset_type"
+          ],
+          "applicability": "needs_review",
+          "status": "estimated",
+          "evidence_source": "audio_candidate",
+          "reason": "Strong raw beat evidence offers a candidate; unconfirmed audio type requires manual review before using BPM metadata."
+        },
+        "key": {
+          "value": "A minor",
+          "root": "A",
+          "scale": "minor",
+          "confidence": 0.812,
+          "profile_score": 0.624561911544,
+          "score_margin": 0.283506490976,
+          "alternatives": [
+            {
+              "value": "C major",
+              "relationship": "audio_candidate",
+              "score": 0.341055420568
+            },
+            {
+              "value": "A major",
+              "relationship": "audio_candidate",
+              "score": 0.276849042933
+            },
+            {
+              "value": "F major",
+              "relationship": "audio_candidate",
+              "score": 0.274004165694
+            }
+          ],
+          "raw_detected_value": "A minor",
+          "warnings": [
+            "key_unknown_asset_type"
+          ],
+          "applicability": "needs_review",
+          "status": "estimated",
+          "evidence_source": "audio_candidate",
+          "reason": "Strong raw harmonic evidence offers a candidate; unconfirmed audio type requires manual review before using key metadata."
+        },
+        "waveform": {
+          "available": true,
+          "sample_count": 3602,
+          "channels": 1,
+          "bits": 8,
+          "sample_rate": 44100,
+          "samples_per_pixel": 4410,
+          "length": 1801,
+          "preview": [
+            0,
+            0,
+            -11,
+            12,
+            -15,
+            13,
+            -5,
+            5,
+            -2,
+            2,
+            -1,
+            1,
+            0,
+            0,
+            -10,
+            11,
+            -4,
+            3,
+            0,
+            0,
+            0,
+            0,
+            -11,
+            12,
+            -17,
+            13,
+            -5,
+            5,
+            -2,
+            2,
+            -1,
+            1,
+            0,
+            0,
+            -12,
+            11,
+            -3,
+            3,
+            0,
+            0,
+            0,
+            0,
+            -11,
+            12,
+            -16,
+            15,
+            -6,
+            6,
+            -2,
+            2,
+            -1,
+            1,
+            0,
+            0,
+            -12,
+            11,
+            -4,
+            3,
+            0,
+            0,
+            0,
+            0,
+            -11,
+            12
+          ],
+          "omitted_samples": 3538,
+          "raw_data_included": false,
+          "raw_data_parameter": "include_waveform_data"
+        }
+      },
+      "result_provenance": {
+        "bpm": {
+          "source": "audio_candidate",
+          "applicability": "needs_review",
+          "status": "estimated",
+          "raw_detected_value": 120.19,
+          "reason": "Strong raw beat evidence offers a candidate; unconfirmed audio type requires manual review before using BPM metadata."
+        },
+        "key": {
+          "source": "audio_candidate",
+          "applicability": "needs_review",
+          "status": "estimated",
+          "raw_detected_value": "A minor",
+          "reason": "Strong raw harmonic evidence offers a candidate; unconfirmed audio type requires manual review before using key metadata."
+        },
+        "waveform": {
+          "source": "audio_detection",
+          "applicability": "applicable",
+          "status": "detected",
+          "reason": "Waveform peaks are available for visual shape and energy metadata."
+        }
+      },
+      "result_quality_notes": [
+        "bpm is an audio detection candidate: unconfirmed audio type requires manual review before using it as definitive metadata.",
+        "key is an audio detection candidate: unconfirmed audio type requires manual review before using it as definitive metadata."
+      ],
+      "studio_notes_present": true,
+      "continuation_action": "review_results",
+      "failed_tools": []
+    },
+    {
+      "step": "waveform_image_verified",
+      "at": "2026-10-29T13:43:31.311Z",
+      "content_types": [
+        "text",
+        "image"
+      ],
+      "image_bytes": 3392
+    },
+    {
+      "step": "result_asset_verified",
+      "at": "2026-10-29T13:43:31.380Z",
+      "kind": "result_url",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 50206
+    },
+    {
+      "step": "result_asset_verified",
+      "at": "2026-10-29T13:43:31.432Z",
+      "kind": "waveform_png_url",
+      "status": 200,
+      "content_type": "image/png",
+      "bytes": 3392
+    },
+    {
+      "step": "result_asset_verified",
+      "at": "2026-10-29T13:43:31.513Z",
+      "kind": "waveform_svg_url",
+      "status": 200,
+      "content_type": "image/svg+xml; charset=utf-8",
+      "bytes": 17455
+    },
+    {
+      "step": "allowance_after",
+      "at": "2026-10-29T13:43:31.904Z",
+      "banked_tokens": 68,
+      "trial_allowance": {
+        "state": "used",
+        "analyses_remaining": 0,
+        "attempts_remaining": 1,
+        "max_duration_sec": 260
+      }
+    },
+    {
+      "step": "anonymous_reconnection_result_recovery",
+      "at": "2026-10-29T13:43:32.145Z",
+      "same_job": true,
+      "same_results": true,
+      "status": "completed"
+    },
+    {
+      "step": "journey_completed",
+      "at": "2026-10-29T13:43:32.146Z",
+      "one_trial": true,
+      "one_analysis_submission": true,
+      "purchases": 0,
+      "key_logged": false,
+      "job_reference_logged": false
+    }
+  ],
+  "settlement": {
+    "cache_hits": [
+      "bpm",
+      "key",
+      "waveform"
+    ],
+    "tokens_charged": 10,
+    "usage_value_usd": 0.047,
+    "cash_paid_usd": 0,
+    "note": "All three analysis tools were cache hits. This verifies cached job delivery and recovery, not fresh detector execution or accuracy."
+  },
+  "private_recovery_material": "Retained outside the checkout in a mode-0600 file inside a mode-0700 directory; not included in artifacts."
+}

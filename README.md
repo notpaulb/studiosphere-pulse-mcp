@@ -1,5 +1,7 @@
 # StudioSphere Pulse — Free Loops and Audio Intelligence MCP
 
+Current workflow evidence is maintained in [the compatibility matrix](docs/mcp-compatibility.md). On October 29, 2026, one approved production SDK trial completed the 180-second CC0 demo through keyed reconnection, analysis, results and fresh anonymous saved-job recovery. All three tools were cache hits. This verifies trial delivery and recovery, not fresh detector execution or an LLM-host workflow. See [the redacted trial report](docs/pulse-mcp-trial-validation-2026-10-29.md).
+
 Discover free, licensed loops and analyze authorized audio for BPM, musical key and waveform data. Start with free discovery and see estimated costs before paid analysis.
 
 [Pulse](https://pulse.studiosphere.space) · [Connection guide](https://pulse.studiosphere.space/connect) · [Open Loops](https://pulse.studiosphere.space/open-loops) · [Quickstart](docs/pulse-mcp-quickstart.md)
@@ -139,7 +141,7 @@ https://mcp.studiosphere.space/mcp?api_key=YOUR_PULSE_API_KEY
 
 This private URL illustrates the current transport, not universal host support. Quote it in shell commands. Query credentials can leak through client configuration, history or logs; never put real keys in shared prompts, screenshots, issues or version control. Pulse's MCP boundary **does not support OAuth or bearer authentication**. The REST API's Bearer support is a different interface.
 
-Read `get_token_balance` for the per-key allowance. The October 7 live default is **78 tokens, up to 300 seconds, 24-hour expiry, one completed/partial URL analysis, at most two queued attempts if the first fails**. Read [live `/tools`](https://pulse.studiosphere.space/tools) and the returned allowance because configuration can differ. Remaining tokens do not grant a second song; no ongoing free tier is promised.
+Read `get_token_balance` for the per-key allowance. The October 29 issued trial had **78 tokens, up to 300 seconds, 24-hour expiry, one completed/partial URL analysis, at most two queued attempts if the first fails**. Read [live `/tools`](https://pulse.studiosphere.space/tools) and the returned allowance because configuration can differ. Remaining tokens do not grant a second song; no ongoing free tier is promised.
 
 Authorized first-party example: [Copper Step CC0 MP3](https://pulse.studiosphere.space/assets/pulse-demo.mp3), 180 seconds; [CC0 provenance](https://pulse.studiosphere.space/assets/pulse-demo.json).
 
@@ -193,3 +195,15 @@ Use these steps only if an existing StudioSphere Pulse connector is missing the 
 Start a **fresh conversation using the same existing connector**. A refresh did not update the already-open conversation in the observed test. Confirm the loaded tool includes `accept_minimum_charge` (boolean) and `max_upfront_amount_cents` (integer) before any approved minimum-charge request. If those fields are still missing, stop and contact support; do not submit using the older schema or omit the acceptance/ceiling.
 
 Carry the original `job_id`, `payment_url` and `continuation.review_url` privately into the fresh conversation. After an interruption, call `get_job_status` for the original saved job; never create a replacement purchase, new analysis or new key to resume it. If the payment URL is lost, contact support. Refreshing tools or starting a chat is not spending approval: the human must explicitly accept the minimum final cost and upfront ceiling and complete Checkout themselves.
+
+## Search interpretation
+
+In the prepared MCP user-experience release, musical-key filters accept common spellings such as `Am` and `a minor` for `A minor`; major/minor remain distinct. Enharmonic spellings and Camelot codes are not converted. BPM, pack and licence constraints are never silently widened.
+
+Keyword search ranks any matching term. Read each returned `search_match`: `matched_terms`, `missing_terms` and `complete` distinguish partial results. A drums-only match for “lofi drums” does not establish a lo-fi genre. Empty results remain empty; ask before relaxing a hard filter. Older deployments may omit this additive field. These explanations are query matching, not musical quality or harmonic-fit scores. Preserve exact licence, licence URL and attribution, and audition samples before use.
+
+## Choose an assistant host
+
+The prepared connection guide offers Claude, Claude Code, Cursor, Codex, ChatGPT, Gemini CLI, Cline and generic transport instructions. Existing connections should be reused. Guides start with anonymous licensed discovery or a free estimate, retain the selected source/tools, and do not create credentials, jobs or payment links. Gemini CLI uses `httpUrl`; this is not consumer Gemini Connected Apps certification. Codex CLI/IDE uses `codex mcp add studiosphere-pulse --url 'https://mcp.studiosphere.space/mcp'`. Cursor manual configuration uses a remote `url` entry. Setup instructions are candidates until the specific host workflow is tested; the recorded Cursor/Grok plugin and existing-Claude-Checkout evidence remain scoped as shown in the compatibility matrix.
+
+References checked October 29: [Codex](https://developers.openai.com/learn/docs-mcp), [Cursor](https://cursor.com/docs/mcp), [Gemini CLI](https://geminicli.com/docs/tools/mcp-server/), [ChatGPT](https://developers.openai.com/api/docs/guides/custom-mcp-server), [Claude Code](https://code.claude.com/docs/en/mcp) and [Cline](https://docs.cline.bot/mcp/mcp-overview).
