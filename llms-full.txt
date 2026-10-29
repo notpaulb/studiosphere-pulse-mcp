@@ -219,12 +219,12 @@ Start a **fresh conversation using the same existing connector**. A refresh did 
 
 Carry the original `job_id`, `payment_url` and `continuation.review_url` privately into the fresh conversation. After an interruption, call `get_job_status` for the original saved job; never create a replacement purchase, new analysis or new key to resume it. If the payment URL is lost, contact support. Refreshing tools or starting a chat is not spending approval: the human must explicitly accept the minimum final cost and upfront ceiling and complete Checkout themselves.
 
-Search matching (prepared UX release): key aliases such as Am normalize to A minor without merging major/minor or enharmonic spellings. Keyword search matches any term; inspect search_match.missing_terms/complete when returned. A partial match does not establish genre or harmonic fit. Never silently widen BPM, key, pack or licence constraints.
+Search matching (MCP 1.0.4): key aliases such as Am normalize to A minor without merging major/minor or enharmonic spellings. Keyword search matches any term; inspect search_match.missing_terms/complete when returned. A partial match does not establish genre or harmonic fit. Never silently widen BPM, key, pack or licence constraints.
 
 ## Game audio starter
 
 https://pulse.studiosphere.space/game-audio-for-agents — use existing licensed music discovery and source records, Unity 6 import guidance, and the existing estimate-only planner for your own authorized music. Public Open Loops must be enabled for free search/get and kit links. The starter supplies music loops, not a one-shot SFX library. Unity/Blender MCP integration is not certified. No new MCP tools or automatic spending.
 
-Prepared host guide: Claude, Claude Code, Cursor, Codex, ChatGPT, Gemini CLI, Cline and generic transport. Candidate instructions do not establish host certification; reuse existing connections and preserve selected estimate source/tools. Gemini CLI httpUrl is distinct from consumer Gemini Connected Apps. See the compatibility matrix for dated workflow scope.
+Host guide (MCP 1.0.4): Claude, Claude Code, Cursor, Codex, ChatGPT, Gemini CLI, Cline and generic transport. Candidate instructions do not establish host certification; reuse existing connections and preserve selected estimate source/tools. Gemini CLI httpUrl is distinct from consumer Gemini Connected Apps. See the compatibility matrix for dated workflow scope.
 
-Prepared measurement: separate identifier-free analysis-response stages count at most once per initialized connection after delivery. They do not measure people, consumption, money or cross-session conversion; missing observations are unavailable. Existing estimate/purchase attribution remains separate.
+Measurement (MCP 1.0.4): separate identifier-free analysis-response stages count at most once per initialized connection after delivery. They do not measure people, consumption, money or cross-session conversion; missing observations are unavailable. Existing estimate/purchase attribution remains separate.

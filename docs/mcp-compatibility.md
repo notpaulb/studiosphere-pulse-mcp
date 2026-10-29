@@ -2,7 +2,7 @@
 
 Reviewed October 29, 2026. Compatibility belongs to a specific host, authentication method and workflow. A listing, package import or SDK test does not establish every workflow in that host. This document is the current evidence index; dated reports retain their original scope.
 
-Release preparation: runtime/package/descriptor candidate **1.0.4** contains the UX changes. The latest verified production runtime and official Registry observation below remain **1.0.3** until deployment/publication is separately verified. A public-repository push does not itself publish to the Registry.
+Production runtime and descriptor **1.0.4** were verified October 29 after the controlled deployment. Official Registry latest remains **1.0.3**, independently rechecked after deployment; this release did not publish a Registry version. The earlier trial observations retain their original scope.
 
 ## Connection contract
 
@@ -10,7 +10,7 @@ Release preparation: runtime/package/descriptor candidate **1.0.4** contains the
 |---|---|
 | Product and human setup | https://pulse.studiosphere.space/connect |
 | Protocol endpoint | `https://mcp.studiosphere.space/mcp` |
-| Transport and identity | Streamable HTTP; `space.studiosphere/pulse`; MCP version `1.0.3` observed October 29 |
+| Transport and identity | Streamable HTTP; `space.studiosphere/pulse`; MCP runtime `1.0.4` verified October 29; official Registry `1.0.3` |
 | Anonymous operations | Licensed-loop search/retrieval, free estimates, saved-job status and token-pack information |
 | Trial and banked analysis | Private query key bound during `initialize`; reconnect after obtaining a key |
 | OAuth and MCP Bearer | Unsupported; REST Bearer authentication is a separate interface |
@@ -24,6 +24,7 @@ Use a host's remote MCP connection interface. The product-domain `/mcp` leads to
 | Host or client | Model | Observed workflow | Evidence date and scope |
 |---|---|---|---|
 | MCP JavaScript SDK against production | No LLM | Anonymous connection, ten tools, licensed-loop search/retrieval, preview/WAV/attribution, free estimates and reconnect | October 29: live audit; protocol evidence |
+| MCP JavaScript SDK against production | No LLM | Runtime 1.0.4, ten compact tools, key aliases, partial-match explanations, free estimate, same-job keyed/fresh-anonymous recovery with PNG/Studio notes/provenance/warnings | October 29 post-deployment: all checks passed; no new trial, analysis or purchase; existing cached results only; no native-host certification |
 | MCP JavaScript SDK against production | No LLM | One approved CC0 trial, keyed initialization, analysis submission, keyed reconnect, completed results, waveform/Studio notes, fresh anonymous recovery of the same job | October 29: [trial evidence](pulse-mcp-trial-validation-2026-10-29.md); all tools were cache hits; no fresh detector or assistant-host certification |
 | Existing configured Claude connector | Not recorded in the scoped report | Buffered Checkout/refund and explicitly accepted minimum-charge Checkout | October 12: two human-completed purchases; fresh anonymous onboarding, trial, banked spending and live cap rejection remain unverified |
 | Cursor Agents portable-plugin import | Grok 4.7 High Fast | Anonymous loop discovery, licence/attribution, estimate, pack information and missing-key response; bounded negative prompts | October 12: [published package evidence](https://github.com/notpaulb/studiosphere-pulse-mcp/blob/main/docs/plugin-package.md); trial, paid analysis and purchases were not run |
@@ -61,13 +62,13 @@ For a below-minimum Checkout offer, show `minimum_final_cost_usd` and `upfront_p
 
 ## Choose an assistant host
 
-The prepared connection guide offers Claude, Claude Code, Cursor, Codex, ChatGPT, Gemini CLI, Cline and generic transport instructions. Existing connections should be reused. Guides start with anonymous licensed discovery or a free estimate, retain the selected source/tools, and do not create credentials, jobs or payment links. Gemini CLI uses `httpUrl`; this is not consumer Gemini Connected Apps certification. Codex CLI/IDE uses `codex mcp add studiosphere-pulse --url 'https://mcp.studiosphere.space/mcp'`. Cursor manual configuration uses a remote `url` entry. Setup instructions are candidates until the specific host workflow is tested; the recorded Cursor/Grok plugin and existing-Claude-Checkout evidence remain scoped as shown in the compatibility matrix.
+The MCP 1.0.4 connection guide offers Claude, Claude Code, Cursor, Codex, ChatGPT, Gemini CLI, Cline and generic transport instructions. Existing connections should be reused. Guides start with anonymous licensed discovery or a free estimate, retain the selected source/tools, and do not create credentials, jobs or payment links. Gemini CLI uses `httpUrl`; this is not consumer Gemini Connected Apps certification. Codex CLI/IDE uses `codex mcp add studiosphere-pulse --url 'https://mcp.studiosphere.space/mcp'`. Cursor manual configuration uses a remote `url` entry. Setup instructions are candidates until the specific host workflow is tested; the recorded Cursor/Grok plugin and existing-Claude-Checkout evidence remain scoped as shown in the compatibility matrix.
 
 References checked October 29: [Codex](https://developers.openai.com/learn/docs-mcp), [Cursor](https://cursor.com/docs/mcp), [Gemini CLI](https://geminicli.com/docs/tools/mcp-server/), [ChatGPT](https://developers.openai.com/api/docs/guides/custom-mcp-server), [Claude Code](https://code.claude.com/docs/en/mcp) and [Cline](https://docs.cline.bot/mcp/mcp-overview).
 
 ## Analysis response delivery measurement
 
-The prepared UX release adds identifier-free `mcp_analysis_workflow` events, separate from existing anonymous discovery and estimate/purchase attribution. Phases are `estimate_delivered`, `analysis_submission_acknowledged` and `usable_result_delivered`, once per initialized connection after a successful HTTP response finishes. Key-aware connections can contribute; stateless recovery and aborted responses do not. Reconnecting creates another connection, not another identified person.
+MCP 1.0.4 adds identifier-free `mcp_analysis_workflow` events, separate from existing anonymous discovery and estimate/purchase attribution. Phases are `estimate_delivered`, `analysis_submission_acknowledged` and `usable_result_delivered`, once per initialized connection after a successful HTTP response finishes. Key-aware connections can contribute; stateless recovery and aborted responses do not. Reconnecting creates another connection, not another identified person.
 
 Only event/schema_version/phase/client_kind/observed_at are emitted. No job/quote references, content hashes, audio URLs, keys, caller names or user text enter these new events. The explicit approved-trial QA client is classified as declared validation; labels remain spoofable. Completed/partial results need a positive BPM candidate, nonempty key candidate or usable waveform; failed/suppressed-only results do not count. A partial result with one failed tool and another usable output can count. Warnings and result delivery remain unchanged.
 
