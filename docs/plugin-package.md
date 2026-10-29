@@ -1,5 +1,7 @@
 # StudioSphere Pulse portable plugin
 
+Current tested workflows and authentication limits: [compatibility matrix](mcp-compatibility.md). The October 29 SDK trial validates cached result delivery and reconnection; it does not extend this document’s host-specific evidence.
+
 Publisher/developer: **StudioSphere Inc.** Plugin version: **0.1.0**.
 
 The root `plugin.json` identifies the package. Root `mcp.json` configures one

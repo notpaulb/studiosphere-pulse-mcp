@@ -1,5 +1,7 @@
 # StudioSphere Pulse Agent Playbook
 
+Current tested workflows and authentication limits: [compatibility matrix](mcp-compatibility.md). The October 29 SDK trial validates cached result delivery and reconnection; it does not extend this document’s host-specific evidence.
+
 
 Start with anonymous licensed sample discovery: `search_open_loops` → `get_open_loop`. Preserve exact license/attribution and follow each sample's terms. See [current connection instructions](https://pulse.studiosphere.space/connect). Authenticated analysis needs a trusted key-aware client: query keys bind at initialize; after a trial key, end the anonymous connection and reconnect. MCP OAuth/Bearer are unsupported. Two scoped workflows through one existing configured Claude connector were validated on October 12, 2026: buffered Checkout with an automatic refund, and explicit minimum-charge Checkout after tool refresh and a fresh conversation. The short-track BPM/key/waveform job completed; provider-backed receipts confirmed US$0.50 captured, US$0 refunded and US$0.50 net. This does not certify anonymous initialization, OAuth, trial/banked-token workflows, other hosts or live over-cap rejection; cap rejection and uncertain-submission controls have local fixture evidence.
 
@@ -155,3 +157,9 @@ Use these steps only if an existing StudioSphere Pulse connector is missing the 
 Start a **fresh conversation using the same existing connector**. A refresh did not update the already-open conversation in the observed test. Confirm the loaded tool includes `accept_minimum_charge` (boolean) and `max_upfront_amount_cents` (integer) before any approved minimum-charge request. If those fields are still missing, stop and contact support; do not submit using the older schema or omit the acceptance/ceiling.
 
 Carry the original `job_id`, `payment_url` and `continuation.review_url` privately into the fresh conversation. After an interruption, call `get_job_status` for the original saved job; never create a replacement purchase, new analysis or new key to resume it. If the payment URL is lost, contact support. Refreshing tools or starting a chat is not spending approval: the human must explicitly accept the minimum final cost and upfront ceiling and complete Checkout themselves.
+
+## Search interpretation
+
+In MCP 1.0.4, musical-key filters accept common spellings such as `Am` and `a minor` for `A minor`; major/minor remain distinct. Enharmonic spellings and Camelot codes are not converted. BPM, pack and licence constraints are never silently widened.
+
+Keyword search ranks any matching term. Read each returned `search_match`: `matched_terms`, `missing_terms` and `complete` distinguish partial results. A drums-only match for “lofi drums” does not establish a lo-fi genre. Empty results remain empty; ask before relaxing a hard filter. Older deployments may omit this additive field. These explanations are query matching, not musical quality or harmonic-fit scores. Preserve exact licence, licence URL and attribution, and audition samples before use.

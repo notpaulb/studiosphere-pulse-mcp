@@ -1,0 +1,41 @@
+StudioSphere Pulse — Studio notes
+Analysis: [private job reference omitted]
+Outcome: completed
+Completed: 2026-10-29T13:43:27.000Z
+Audio duration: 180 seconds
+
+BPM estimate: 120.19 BPM
+  Source: audio_candidate
+  Review state: estimated / needs_review
+  Detection confidence: 100% (not an accuracy guarantee)
+  Raw candidate: 120.19 BPM
+  Strong raw beat evidence offers a candidate; unconfirmed audio type requires manual review before using BPM metadata.
+  Warning: bpm_unknown_asset_type
+
+Key estimate: A minor
+  Source: audio_candidate
+  Review state: estimated / needs_review
+  Detection confidence: 81% (not an accuracy guarantee)
+  Raw candidate: A minor
+  Strong raw harmonic evidence offers a candidate; unconfirmed audio type requires manual review before using key metadata.
+  audio_candidate: C major
+  audio_candidate: A major
+  audio_candidate: F major
+  Warning: key_unknown_asset_type
+
+Waveform: Peak data available for review/export on the saved Pulse result page.
+  Review state: detected / applicable
+  Waveform peaks are available for visual shape and energy metadata.
+Unavailable tools: None reported
+
+Before you use these results
+BPM and musical key are estimates. Review by ear before using them in a DAW, performance or catalogue; check half-time/double-time tempo and ambiguous keys.
+Filename-derived note or chord metadata describes a library hint, not the musical key of a whole track and not chord transcription.
+Set your DAW tempo only after review. Keep this note beside your project and record any corrections there.
+Use audio you have rights, permission, lawful access, or another legal basis to process. Analysis does not grant audio rights or replace required loop attribution.
+
+Analysis snapshot, not a receipt or current payment/refund status. Check the live receipt separately. No audio file or source URL is included.
+Save these notes before the 24-hour result window ends. For downloads, use the saved Pulse result page. Treat your job link and analysis details as private.
+
+Next track: https://pulse.studiosphere.space/#analysis
+Licensed sounds: https://pulse.studiosphere.space/open-loops

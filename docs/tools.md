@@ -1,5 +1,7 @@
 # Tools
 
+Current tested workflows and authentication limits: [compatibility matrix](mcp-compatibility.md). The October 29 SDK trial validates cached result delivery and reconnection; it does not extend this document’s host-specific evidence.
+
 StudioSphere Pulse exposes audio analysis capabilities through a hosted MCP server and API.
 
 ## Anonymous MCP discovery
@@ -56,3 +58,9 @@ October7 default snapshot (read `/tools` for current values; costs and BPM/key a
 }
 ```
 
+
+## Search interpretation
+
+In MCP 1.0.4, musical-key filters accept common spellings such as `Am` and `a minor` for `A minor`; major/minor remain distinct. Enharmonic spellings and Camelot codes are not converted. BPM, pack and licence constraints are never silently widened.
+
+Keyword search ranks any matching term. Read each returned `search_match`: `matched_terms`, `missing_terms` and `complete` distinguish partial results. A drums-only match for “lofi drums” does not establish a lo-fi genre. Empty results remain empty; ask before relaxing a hard filter. Older deployments may omit this additive field. These explanations are query matching, not musical quality or harmonic-fit scores. Preserve exact licence, licence URL and attribution, and audition samples before use.

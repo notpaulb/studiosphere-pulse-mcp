@@ -1,5 +1,7 @@
 # Pulse MCP quickstart
 
+Current workflow evidence is maintained in [the compatibility matrix](mcp-compatibility.md). On October 29, 2026, one approved production SDK trial completed the 180-second CC0 demo through keyed reconnection, analysis, results and fresh anonymous saved-job recovery. All three tools were cache hits. This verifies trial delivery and recovery, not fresh detector execution or an LLM-host workflow. See [the redacted trial report](pulse-mcp-trial-validation-2026-10-29.md).
+
 Discover free, licensed loops and analyze authorized audio for BPM, musical key and waveform data. Start with free discovery and see estimated costs before paid analysis.
 
 ## Useful first connection
@@ -37,7 +39,7 @@ https://mcp.studiosphere.space/mcp?api_key=YOUR_PULSE_API_KEY
 
 Keep actual keys out of shared logs, screenshots, prompts and version control. Query URLs can leak through client history/configuration. Do not create or rotate credentials automatically.
 
-Read `get_token_balance` for the returned allowance. October 7 defaults are 78 tokens, up to 300 seconds, 24-hour expiry, one completed/partial URL analysis and at most two queued attempts if the first fails. Read live https://pulse.studiosphere.space/tools; configuration and per-key limits may differ. Unused tokens do not grant another song.
+Read `get_token_balance` for the returned allowance. The October 29 issued trial had 78 tokens, a 300-second initial cap, 24-hour expiry, one completed/partial URL analysis and at most two queued attempts if the first fails. Read live https://pulse.studiosphere.space/tools; configuration and per-key limits may differ. Unused tokens do not grant another song.
 
 Use the original 180-second CC0 example when it fits the allowance:
 https://pulse.studiosphere.space/assets/pulse-demo.mp3
@@ -52,7 +54,7 @@ If interrupted, retain the private key and job ID, reconnect and poll before ret
 
 ## Ongoing analysis
 
-October 7 default three-minute BPM/key/waveform example estimates 47 tokens, exact $0.235 displayed $0.24; five minutes estimates 78 tokens/$0.39. Final costs use measured duration. Current tiers are returned by `list_token_packs`, including 1K/$5 Starter; do not rely on fixed examples for purchasing. One-off Checkout has a $0.50 floor; banked usage has no per-job minimum.
+October 7 default three-minute BPM/key/waveform example estimates 47 tokens, exact $0.235 displayed $0.24; five minutes estimates 78 tokens/$0.39. Final costs use measured duration and cache hits; cached usage may settle below the fresh-tool estimate. Current tiers are returned by `list_token_packs`, including 1K/$5 Starter; do not rely on fixed examples for purchasing. One-off Checkout has a $0.50 floor; banked usage has no per-job minimum.
 
 Private account flow: `get_token_balance` → `estimate_cost` → review cost/rights → `analyze_track` → `get_job_status`. Checkout-link creation is not collected revenue. Keep paid promotion gated on payment/refund readiness and tested host authentication.
 
@@ -105,3 +107,15 @@ Use these steps only if an existing StudioSphere Pulse connector is missing the 
 Start a **fresh conversation using the same existing connector**. A refresh did not update the already-open conversation in the observed test. Confirm the loaded tool includes `accept_minimum_charge` (boolean) and `max_upfront_amount_cents` (integer) before any approved minimum-charge request. If those fields are still missing, stop and contact support; do not submit using the older schema or omit the acceptance/ceiling.
 
 Carry the original `job_id`, `payment_url` and `continuation.review_url` privately into the fresh conversation. After an interruption, call `get_job_status` for the original saved job; never create a replacement purchase, new analysis or new key to resume it. If the payment URL is lost, contact support. Refreshing tools or starting a chat is not spending approval: the human must explicitly accept the minimum final cost and upfront ceiling and complete Checkout themselves.
+
+## Search interpretation
+
+In MCP 1.0.4, musical-key filters accept common spellings such as `Am` and `a minor` for `A minor`; major/minor remain distinct. Enharmonic spellings and Camelot codes are not converted. BPM, pack and licence constraints are never silently widened.
+
+Keyword search ranks any matching term. Read each returned `search_match`: `matched_terms`, `missing_terms` and `complete` distinguish partial results. A drums-only match for “lofi drums” does not establish a lo-fi genre. Empty results remain empty; ask before relaxing a hard filter. Older deployments may omit this additive field. These explanations are query matching, not musical quality or harmonic-fit scores. Preserve exact licence, licence URL and attribution, and audition samples before use.
+
+## Choose an assistant host
+
+The MCP 1.0.4 connection guide offers Claude, Claude Code, Cursor, Codex, ChatGPT, Gemini CLI, Cline and generic transport instructions. Existing connections should be reused. Guides start with anonymous licensed discovery or a free estimate, retain the selected source/tools, and do not create credentials, jobs or payment links. Gemini CLI uses `httpUrl`; this is not consumer Gemini Connected Apps certification. Codex CLI/IDE uses `codex mcp add studiosphere-pulse --url 'https://mcp.studiosphere.space/mcp'`. Cursor manual configuration uses a remote `url` entry. Setup instructions are candidates until the specific host workflow is tested; the recorded Cursor/Grok plugin and existing-Claude-Checkout evidence remain scoped as shown in the compatibility matrix.
+
+References checked October 29: [Codex](https://developers.openai.com/learn/docs-mcp), [Cursor](https://cursor.com/docs/mcp), [Gemini CLI](https://geminicli.com/docs/tools/mcp-server/), [ChatGPT](https://developers.openai.com/api/docs/guides/custom-mcp-server), [Claude Code](https://code.claude.com/docs/en/mcp) and [Cline](https://docs.cline.bot/mcp/mcp-overview).
