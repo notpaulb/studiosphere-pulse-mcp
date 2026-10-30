@@ -64,3 +64,20 @@ October7 default snapshot (read `/tools` for current values; costs and BPM/key a
 In MCP 1.0.4, musical-key filters accept common spellings such as `Am` and `a minor` for `A minor`; major/minor remain distinct. Enharmonic spellings and Camelot codes are not converted. BPM, pack and licence constraints are never silently widened.
 
 Keyword search ranks any matching term. Read each returned `search_match`: `matched_terms`, `missing_terms` and `complete` distinguish partial results. A drums-only match for “lofi drums” does not establish a lo-fi genre. Empty results remain empty; ask before relaxing a hard filter. Older deployments may omit this additive field. These explanations are query matching, not musical quality or harmonic-fit scores. Preserve exact licence, licence URL and attribution, and audition samples before use.
+
+## Curated loops, project matching and portable exports
+
+
+Use [Find loops for your project](https://pulse.studiosphere.space/open-loops/project) for released loops, without an account or analysis. Existing individually auditioned source loops are separate from technically checked original synthesis; automated checks are not listening approval. The catalogue and complete-kit player remain available.
+
+In your existing connected assistant, call `search_open_loops` with, for example:
+
+```json
+{"project_bpm":120,"bpm_tolerance":5,"key":"Am","role":"bass","review_basis":"original_synthesis","limit":5}
+```
+
+Read `project_match` reasons and `search_match.missing_terms`. Project mode requires an explicit major/minor key when supplied; it cannot combine with `bpm_min`/`bpm_max`. Keys stay exact: no relative-key, enharmonic or transposition inference. `include_unkeyed_percussion:true` optionally admits unspecified-key percussion tag hints, requiring audition; this is not proof of atonality or musical fit. No additional MCP tool is added.
+
+`get_open_loop` and search items include `provenance_url` and `metadata_export_url`. For several selected IDs use `/open-loops/export?ids=POL_ID_1,POL_ID_2&format=json`, `csv` or `zip`. Select 1–8 unique released IDs. ZIP includes unchanged WAVs, manifest, spreadsheet-safe metadata, per-file rights and credits, limited to 16 MiB audio plus 1 MiB metadata and a 30-second build. If busy, respect Retry-After; if too large, export metadata and download WAVs individually. Interrupted or unavailable exports publish no partial archive; retry the same selection rather than starting audio analysis.
+
+Follow each file's exact licence. Mixed CC0/CC-BY selections have no blanket CC0 licence. Released hashes and source/applicability records support traceability, not proof of authorship or distributor acceptance. Audition the loops together and retain required credits in your project. This flow creates no trial, credentials, analysis or payment. Native assistant-host and DAW import testing require separate evidence.
