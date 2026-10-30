@@ -119,3 +119,19 @@ Keyword search ranks any matching term. Read each returned `search_match`: `matc
 The MCP 1.0.4 connection guide offers Claude, Claude Code, Cursor, Codex, ChatGPT, Gemini CLI, Cline and generic transport instructions. Existing connections should be reused. Guides start with anonymous licensed discovery or a free estimate, retain the selected source/tools, and do not create credentials, jobs or payment links. Gemini CLI uses `httpUrl`; this is not consumer Gemini Connected Apps certification. Codex CLI/IDE uses `codex mcp add studiosphere-pulse --url 'https://mcp.studiosphere.space/mcp'`. Cursor manual configuration uses a remote `url` entry. Setup instructions are candidates until the specific host workflow is tested; the recorded Cursor/Grok plugin and existing-Claude-Checkout evidence remain scoped as shown in the compatibility matrix.
 
 References checked October 29: [Codex](https://developers.openai.com/learn/docs-mcp), [Cursor](https://cursor.com/docs/mcp), [Gemini CLI](https://geminicli.com/docs/tools/mcp-server/), [ChatGPT](https://developers.openai.com/api/docs/guides/custom-mcp-server), [Claude Code](https://code.claude.com/docs/en/mcp) and [Cline](https://docs.cline.bot/mcp/mcp-overview).
+
+## Curated loops, project matching and portable exports
+
+Use [Find loops for your project](https://pulse.studiosphere.space/open-loops/project) for released loops, without an account or analysis. Existing individually auditioned source loops are separate from technically checked original synthesis; automated checks are not listening approval. The catalogue and complete-kit player remain available.
+
+In your existing connected assistant, call `search_open_loops` with, for example:
+
+```json
+{"project_bpm":120,"bpm_tolerance":5,"key":"Am","role":"bass","review_basis":"original_synthesis","limit":5}
+```
+
+Read `project_match` reasons and `search_match.missing_terms`. Project mode requires an explicit major/minor key when supplied; it cannot combine with `bpm_min`/`bpm_max`. Keys stay exact: no relative-key, enharmonic or transposition inference. `include_unkeyed_percussion:true` optionally admits unspecified-key percussion tag hints, requiring audition; this is not proof of atonality or musical fit. No additional MCP tool is added.
+
+`get_open_loop` and search items include `provenance_url` and `metadata_export_url`. For several selected IDs use `/open-loops/export?ids=POL_ID_1,POL_ID_2&format=json`, `csv` or `zip`. Select 1–8 unique released IDs. ZIP includes unchanged WAVs, manifest, spreadsheet-safe metadata, per-file rights and credits, limited to 16 MiB audio plus 1 MiB metadata and a 30-second build. If busy, respect Retry-After; if too large, export metadata and download WAVs individually. Interrupted or unavailable exports publish no partial archive; retry the same selection rather than starting audio analysis.
+
+Follow each file's exact licence. Mixed CC0/CC-BY selections have no blanket CC0 licence. Released hashes and source/applicability records support traceability, not proof of authorship or distributor acceptance. Audition the loops together and retain required credits in your project. This flow creates no trial, credentials, analysis or payment. Native assistant-host and DAW import testing require separate evidence.
