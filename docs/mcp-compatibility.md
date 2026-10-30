@@ -30,7 +30,7 @@ Use a host's remote MCP connection interface. The product-domain `/mcp` leads to
 | Cursor Agents portable-plugin import | Grok 4.7 High Fast | Anonymous loop discovery, licence/attribution, estimate, pack information and missing-key response; bounded negative prompts | October 12: [published package evidence](https://github.com/notpaulb/studiosphere-pulse-mcp/blob/main/docs/plugin-package.md); trial, paid analysis and purchases were not run |
 | OpenAI personal plugin import | Not recorded | Package, icon and manifest import | October 12: import only; runtime workflow and public publisher acceptance unverified |
 | Claude Code, ChatGPT runtime, Codex runtime, Gemini, Cline | Not tested in this audit | Candidate remote setup depends on host features and workspace permissions | No new runtime certification; consult current host documentation before setup |
-| Smithery | Not applicable to direct Pulse endpoint | Directory discovery is distinct from a client/proxy workflow | Existing configuration uses Pulse directly; managed proxy retirement is October 31; installed-client reliance remains to be checked |
+| Smithery | Not applicable to direct Pulse endpoint | Directory discovery is distinct from a client/proxy workflow | October 30 bounded config inspection: direct Pulse URL in the public package and workstation Cursor; no retiring proxy references in the checked client, production or Praxis configs. Other machines/cloud connectors remain unverified. Managed proxy retirement is October 31 |
 
 Historical Claude purchases are operator QA, not organic acquisition or evidence for another host. Cursor/Grok evidence is specific to its recorded tasks. No host inherits SDK trial evidence.
 
