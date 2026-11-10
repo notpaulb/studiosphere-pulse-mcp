@@ -1,14 +1,14 @@
 # StudioSphere Pulse — Free Loops and Audio Intelligence MCP
 
-Current workflow evidence is maintained in [the compatibility matrix](docs/mcp-compatibility.md). On October 29, 2026, one approved production SDK trial completed the 180-second CC0 demo through keyed reconnection, analysis, results and fresh anonymous saved-job recovery. All three tools were cache hits. This verifies trial delivery and recovery, not fresh detector execution or an LLM-host workflow. See [the redacted trial report](docs/pulse-mcp-trial-validation-2026-10-29.md).
+Current workflow evidence is maintained in [the compatibility matrix](mcp-compatibility.md). On October 29, 2026, one approved production SDK trial completed the 180-second CC0 demo through keyed reconnection, analysis, results and fresh anonymous saved-job recovery. All three tools were cache hits. This verifies trial delivery and recovery, not fresh detector execution or an LLM-host workflow. See [the redacted trial report](pulse-mcp-trial-validation-2026-10-29.md).
 
 Discover free, licensed loops and analyze authorized audio for BPM, musical key and waveform data. Start with free discovery and see estimated costs before paid analysis.
 
-[Pulse](https://pulse.studiosphere.space) · [Connection guide](https://pulse.studiosphere.space/connect) · [Open Loops](https://pulse.studiosphere.space/open-loops) · [Quickstart](docs/pulse-mcp-quickstart.md)
+[Pulse](https://pulse.studiosphere.space) · [Connection guide](https://pulse.studiosphere.space/connect) · [Open Loops](https://pulse.studiosphere.space/open-loops) · [Quickstart](pulse-mcp-quickstart.md)
 
 ## Local creative example
 
-Try [licensed loop → reviewed tempo grid → motion cuts](examples/loop-to-motion/README.md): a CC0 loop, local custom player, human review controls, portable cut list and optional local MP4. Timing starts provisional; no analysis, purchase or credentials are created. This is an example, not automatic beat detection, DAW control or a video-provider integration.
+Try [licensed loop → reviewed tempo grid → motion cuts](https://github.com/notpaulb/studiosphere-pulse-mcp/blob/main/examples/loop-to-motion/README.md): a CC0 loop, local custom player, human review controls, portable cut list and optional local MP4. Timing starts provisional; no analysis, purchase or credentials are created. This is an example, not automatic beat detection, DAW control or a video-provider integration.
 
 Building a game with an agent? Use the [game-audio starter](https://pulse.studiosphere.space/game-audio-for-agents) for licensed CC0 music, source records, Unity import steps and an optional free estimate for your own authorized audio. The starter does not provide a one-shot SFX library or certify Unity/Blender MCP integration. Existing kit metadata needs no paid analysis.
 
@@ -22,7 +22,7 @@ The root `plugin.json` and `mcp.json` use the portable Agent Plugins format,
 supported by OpenAI and Cursor. Plugin version **0.1.0** points to the anonymous
 Streamable HTTP endpoint above, with no bundled credentials, local executable,
 dependencies or lifecycle hooks. The existing Pulse icon is in `assets/icon.png`.
-See [plugin installation and validation](docs/plugin-package.md).
+See [plugin installation and validation](https://github.com/notpaulb/studiosphere-pulse-mcp/blob/main/docs/plugin-package.md).
 
 Cursor local import connected all ten tools on October 12, 2026. A scoped host
 conversation validated loop search, licence/attribution retrieval, a free demo
@@ -166,7 +166,9 @@ Audio is processed for analysis and not stored as user audio; temporary processi
 
 [Terms](https://pulse.studiosphere.space/terms) · [API docs](https://pulse.studiosphere.space/docs) · [Machine-readable journey](https://pulse.studiosphere.space/.well-known/pulse/agent-journey.json) · [MCP health](https://mcp.studiosphere.space/health)
 
-Existing listings: [Official Registry](https://registry.modelcontextprotocol.io/v0/servers?search=space.studiosphere%2Fpulse) (`space.studiosphere/pulse`,1.0.4), [Smithery](https://smithery.ai/servers/studiosphere/pulse), [Glama connector](https://glama.ai/mcp/connectors/space.studiosphere/pulse). A listing is not a compatibility endorsement.
+Existing listings: [Official Registry](https://registry.modelcontextprotocol.io/v0/servers?search=space.studiosphere%2Fpulse) (`space.studiosphere/pulse`,1.0.4), [Glama connector](https://glama.ai/mcp/connectors/space.studiosphere/pulse). A listing is not a compatibility endorsement.
+
+Smithery retired its proxy and connection-management services on October 31, 2026; its directory remains under Arcade. Use Pulse directly at `https://mcp.studiosphere.space/mcp`. The former Pulse Smithery listing URL returned 404 on November 10; retained-directory presence is unconfirmed. See [migration guidance and scoped connection checks](https://github.com/notpaulb/studiosphere-pulse-mcp/blob/main/docs/smithery-retirement.md).
 
 Support/security questions: **support@studiosphere.space**. Never send your API key.
 
