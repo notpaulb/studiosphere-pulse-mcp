@@ -1,6 +1,6 @@
 # Pulse MCP compatibility and evidence
 
-Reviewed October 29, 2026. Compatibility belongs to a specific host, authentication method and workflow. A listing, package import or SDK test does not establish every workflow in that host. This document is the current evidence index; dated reports retain their original scope.
+Workflow review October 29, 2026; targeted Smithery retirement and anonymous direct-protocol check November 10, 2026. Other workflow evidence retains its stated date. Compatibility belongs to a specific host, authentication method and workflow. A listing, package import or SDK test does not establish every workflow in that host. This document is the current evidence index; dated reports retain their original scope.
 
 Production runtime and descriptor **1.0.4** were verified October 29 after the controlled deployment. Official Registry **1.0.4** was subsequently published October 29 at 15:34:47 EDT and independently verified active/latest through the [Registry API](https://registry.modelcontextprotocol.io/v0/servers?search=space.studiosphere%2Fpulse). The earlier trial observations retain their original scope.
 
@@ -23,6 +23,7 @@ Use a host's remote MCP connection interface. The product-domain `/mcp` leads to
 
 | Host or client | Model | Observed workflow | Evidence date and scope |
 |---|---|---|---|
+| MCP JavaScript SDK against production | No LLM | Anonymous initialization as runtime 1.0.4 and listing ten tools; connection closed | November 10: direct endpoint only; no tool calls, credentials, trial, analysis or payment; no assistant-host certification. [Smithery retirement check](smithery-retirement.md) |
 | MCP JavaScript SDK against production | No LLM | Anonymous connection, ten tools, licensed-loop search/retrieval, preview/WAV/attribution, free estimates and reconnect | October 29: live audit; protocol evidence |
 | MCP JavaScript SDK against production | No LLM | Runtime 1.0.4, ten compact tools, key aliases, partial-match explanations, free estimate, same-job keyed/fresh-anonymous recovery with PNG/Studio notes/provenance/warnings | October 29 post-deployment: all checks passed; no new trial, analysis or purchase; existing cached results only; no native-host certification |
 | MCP JavaScript SDK against production | No LLM | One approved CC0 trial, keyed initialization, analysis submission, keyed reconnect, completed results, waveform/Studio notes, fresh anonymous recovery of the same job | October 29: [trial evidence](pulse-mcp-trial-validation-2026-10-29.md); all tools were cache hits; no fresh detector or assistant-host certification |
@@ -30,7 +31,7 @@ Use a host's remote MCP connection interface. The product-domain `/mcp` leads to
 | Cursor Agents portable-plugin import | Grok 4.7 High Fast | Anonymous loop discovery, licence/attribution, estimate, pack information and missing-key response; bounded negative prompts | October 12: [published package evidence](https://github.com/notpaulb/studiosphere-pulse-mcp/blob/main/docs/plugin-package.md); trial, paid analysis and purchases were not run |
 | OpenAI personal plugin import | Not recorded | Package, icon and manifest import | October 12: import only; runtime workflow and public publisher acceptance unverified |
 | Claude Code, ChatGPT runtime, Codex runtime, Gemini, Cline | Not tested in this audit | Candidate remote setup depends on host features and workspace permissions | No new runtime certification; consult current host documentation before setup |
-| Smithery | Not applicable to direct Pulse endpoint | Directory discovery is distinct from a client/proxy workflow | October 30 bounded config inspection: direct Pulse URL in the public package and workstation Cursor; no retiring proxy references in the checked client, production or Praxis configs. Other machines/cloud connectors remain unverified. Managed proxy retirement is October 31 |
+| Smithery | Not applicable to direct Pulse endpoint | Directory discovery is distinct from a client/proxy workflow | November 10: connection services retired Oct 31; directory remains. Former Pulse listing URL returns 404; current directory presence unconfirmed. [Migration and scoped direct-protocol checks](smithery-retirement.md). Oct 30 bounded config inspection remains historical; other machines/cloud connectors unverified. |
 
 Historical Claude purchases are operator QA, not organic acquisition or evidence for another host. Cursor/Grok evidence is specific to its recorded tasks. No host inherits SDK trial evidence.
 

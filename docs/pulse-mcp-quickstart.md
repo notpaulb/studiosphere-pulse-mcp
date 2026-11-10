@@ -12,6 +12,8 @@ Human guide: https://pulse.studiosphere.space/connect (also reached from the pro
 https://mcp.studiosphere.space/mcp
 ```
 
+**Smithery migration:** its proxy and connection services retired October 31, 2026; its directory remains. Keep an existing direct Pulse connection. If your Pulse entry uses `run.tools` or `server.smithery.ai`, update that entry to the direct endpoint and reconnect; do not create replacement credentials or purchases. See [retirement details and verification limits](smithery-retirement.md).
+
 Connect without authentication. Call `search_open_loops`, then `get_open_loop` for a returned `pol_id`. Show preview/download and preserve license, license URL and attribution; follow each sample's terms. No key, account, tokens or payment is needed.
 
 Claude: open the existing [StudioSphere Pulse Community listing](https://claude.ai/directory/studiosphere-pulse), published by StudioSphere Inc. Reuse Pulse if already connected; do not add a second connector. Community means automated review, not Anthropic verification. Workspace availability can vary. Manual remote setup uses Customize → Connectors → Add custom connector, the public endpoint and No sign in. Do not use Desktop's local configuration editor for this remote connection.
